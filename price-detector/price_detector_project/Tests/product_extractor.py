@@ -13,6 +13,13 @@ def read_page(product, website_name):
     html = response.text
     soup = BeautifulSoup(html, "html.parser")
     return url
+#Each store has it's own class ID to display it's products
+#For JBHifi it's https://www.jbhifi.com.au/products/.......(use the "products" ID)
+#For Myer it's https://www.myer.com.au/p/......(use the "p" tag)
+#For DavidJones it's https://www.davidjones.com/product/......(use the "product" tag)
+#If the use types website as: David jones this function will use find_all('product') to get all items 
+def find_store_key_ID():
+    pass
 
 def get_product_links():
     getUrl = read_page(product, website_name)#gets the url param from "read_page" function
