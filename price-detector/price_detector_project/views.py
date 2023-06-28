@@ -11,6 +11,7 @@ def read_page(product, website_name):
     product = product.replace(" ", "+")
     website_name = website_name.replace(" ", "").lower()
     url = f"https://www.{website_name}.com.au/s?k={product}"
+    print(url)
     response = requests.get(url)
     html = response.text
     soup = BeautifulSoup(html, "html.parser")
@@ -51,7 +52,7 @@ def join_name_and_price(product_names, product_prices):
     print(products)
     
 soup = read_page(product, website_name)
-links = get_product_links()
+# links = get_product_links()
 names = get_product_names(soup, product)
 prices = get_product_prices(soup)
 join_name_and_price(names, prices)
