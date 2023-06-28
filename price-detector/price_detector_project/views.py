@@ -5,8 +5,7 @@ import re
 product = input("Type a product: ")
 website_name = input("type a website: ")
 
-
-
+    
 def read_page(product, website_name):
     product = product.replace(" ", "+")
     website_name = website_name.replace(" ", "").lower()
@@ -24,6 +23,9 @@ def get_product_links():
     urls = []
     for link in soup.find_all('a'):#looks for the "a" tag in html
         print(link.get('href'))
+        
+    return urls
+
 
 def get_product_names(soup, product):
     name_elements = soup.find_all(string=re.compile(product))
