@@ -3,16 +3,28 @@ from bs4 import BeautifulSoup
 import re
 
 product = input("Type a product: ")
+website_name = input("type a website: ")
 
-def read_page(product):
+    
+def read_page(product, website_name):
     product = product.replace(" ", "+")
-
-    url = f"https://www.amazon.com.au/s?k={product}"
+    website_name = website_name.replace(" ", "").lower()
+    url = f"https://www.{website_name}.com.au/s?k={product}"
     response = requests.get(url)
     html = response.text
     soup = BeautifulSoup(html, "html.parser")
 
-    return soup
+    return url
+
+def get_product_links():
+    getUrl = read_page(product, website_name)#gets the url param from "read_page" function
+    reqs = requests.get(getUrl)
+    soup = BeautifulSoup(reqs.text, 'html.parser')
+    urls = []
+    for link in soup.find_all('a'):#looks for the "a" tag in html
+        print(link.get('href'))
+        
+    return urls
 
 
 def get_product_names(soup, product):
@@ -25,10 +37,6 @@ def get_product_names(soup, product):
   
 
 def get_product_prices(soup):
-    """
-        create an expression that returns the data inside
-        quotations after the $= and before the </p> by specifying $(.*?)</p>.
-    """
     price_symbols = soup.find_all("span", string=re.compile(r"\$\d+\.?\d*"))
 
     # Extract the prices using regular expressions
@@ -44,7 +52,8 @@ def join_name_and_price(product_names, product_prices):
 
     print(products)
     
-soup = read_page(product)
+soup = read_page(product, website_name)
+links = get_product_links()
 names = get_product_names(soup, product)
 prices = get_product_prices(soup)
 join_name_and_price(names, prices)
