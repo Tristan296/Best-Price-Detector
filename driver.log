@@ -1,0 +1,529 @@
+[1687947315.571][INFO]: Starting ChromeDriver 114.0.5735.90 (386bc09e8f4f2e025eddae123f36f6263096ae49-refs/branch-heads/5735@{#1052}) on port 55803
+[1687947315.571][INFO]: Please see https://chromedriver.chromium.org/security-considerations for suggestions on keeping ChromeDriver safe.
+[1687947316.440][INFO]: [e553232b0a6c845b83fdc59334866990] COMMAND InitSession {
+   "capabilities": {
+      "alwaysMatch": {
+         "browserName": "chrome",
+         "goog:chromeOptions": {
+            "args": [ "--start-maximized" ],
+            "extensions": [  ]
+         },
+         "platformName": "any"
+      },
+      "firstMatch": [ {
+      } ]
+   },
+   "desiredCapabilities": {
+      "browserName": "chrome",
+      "goog:chromeOptions": {
+         "args": [ "--start-maximized" ],
+         "extensions": [  ]
+      },
+      "platform": "ANY",
+      "version": ""
+   }
+}
+[1687947316.443][INFO]: Populating Preferences file: {
+   "alternate_error_pages": {
+      "enabled": false
+   },
+   "autofill": {
+      "enabled": false
+   },
+   "browser": {
+      "check_default_browser": false
+   },
+   "distribution": {
+      "import_bookmarks": false,
+      "import_history": false,
+      "import_search_engine": false,
+      "make_chrome_default_for_user": false,
+      "skip_first_run_ui": true
+   },
+   "dns_prefetching": {
+      "enabled": false
+   },
+   "profile": {
+      "content_settings": {
+         "pattern_pairs": {
+            "https://*,*": {
+               "media-stream": {
+                  "audio": "Default",
+                  "video": "Default"
+               }
+            }
+         }
+      },
+      "default_content_setting_values": {
+         "geolocation": 1
+      },
+      "default_content_settings": {
+         "geolocation": 1,
+         "mouselock": 1,
+         "notifications": 1,
+         "popups": 1,
+         "ppapi-broker": 1
+      },
+      "password_manager_enabled": false
+   },
+   "safebrowsing": {
+      "enabled": false
+   },
+   "search": {
+      "suggest_enabled": false
+   },
+   "translate": {
+      "enabled": false
+   }
+}
+[1687947316.444][INFO]: Populating Local State file: {
+   "background_mode": {
+      "enabled": false
+   },
+   "ssl": {
+      "rev_checking": {
+         "enabled": false
+      }
+   }
+}
+[1687947316.444][INFO]: Launching chrome: /Applications/Google Chrome.app/Contents/MacOS/Google Chrome --allow-pre-commit-input --disable-background-networking --disable-client-side-phishing-detection --disable-default-apps --disable-hang-monitor --disable-popup-blocking --disable-prompt-on-repost --disable-sync --enable-automation --enable-logging --log-level=0 --no-first-run --no-service-autorun --password-store=basic --remote-debugging-port=0 --start-maximized --test-type=webdriver --use-mock-keychain --user-data-dir=/var/folders/67/g2_t3zpj3mj418z7957w_hzc0000gn/T/.com.google.Chrome.JctTmb data:,
+[1687947319.371][INFO]: resolved localhost to ["::1","127.0.0.1"]
+[1687947319.417][INFO]: [e553232b0a6c845b83fdc59334866990] RESPONSE InitSession {
+   "capabilities": {
+      "acceptInsecureCerts": false,
+      "browserName": "chrome",
+      "browserVersion": "114.0.5735.198",
+      "chrome": {
+         "chromedriverVersion": "114.0.5735.90 (386bc09e8f4f2e025eddae123f36f6263096ae49-refs/branch-heads/5735@{#1052})",
+         "userDataDir": "/var/folders/67/g2_t3zpj3mj418z7957w_hzc0000gn/T/.com.google.Chrome.JctTmb"
+      },
+      "goog:chromeOptions": {
+         "debuggerAddress": "localhost:55814"
+      },
+      "networkConnectionEnabled": false,
+      "pageLoadStrategy": "normal",
+      "platformName": "mac os x",
+      "proxy": {
+      },
+      "setWindowRect": true,
+      "strictFileInteractability": false,
+      "timeouts": {
+         "implicit": 0,
+         "pageLoad": 300000,
+         "script": 30000
+      },
+      "unhandledPromptBehavior": "dismiss and notify",
+      "webauthn:extension:credBlob": true,
+      "webauthn:extension:largeBlob": true,
+      "webauthn:extension:minPinLength": true,
+      "webauthn:extension:prf": true,
+      "webauthn:virtualAuthenticators": true
+   },
+   "sessionId": "e553232b0a6c845b83fdc59334866990"
+}
+[1687947319.418][INFO]: [e553232b0a6c845b83fdc59334866990] COMMAND MaximizeWindow {
+}
+[1687947319.418][INFO]: Waiting for pending navigations...
+[1687947319.419][INFO]: Done waiting for pending navigations. Status: ok
+[1687947319.419][INFO]: Waiting for pending navigations...
+[1687947319.419][INFO]: Done waiting for pending navigations. Status: ok
+[1687947319.419][INFO]: [e553232b0a6c845b83fdc59334866990] RESPONSE MaximizeWindow {
+   "height": 883,
+   "width": 1512,
+   "x": 0,
+   "y": 38
+}
+[1687947319.419][INFO]: [e553232b0a6c845b83fdc59334866990] COMMAND Navigate {
+   "url": "https://www.jbhifi.com.au/"
+}
+[1687947319.419][INFO]: Waiting for pending navigations...
+[1687947319.420][INFO]: Done waiting for pending navigations. Status: ok
+[1687947319.710][INFO]: Waiting for pending navigations...
+[1687947322.593][INFO]: Done waiting for pending navigations. Status: ok
+[1687947322.593][INFO]: [e553232b0a6c845b83fdc59334866990] RESPONSE Navigate
+[1687947325.599][INFO]: [e553232b0a6c845b83fdc59334866990] COMMAND GetSource {
+}
+[1687947325.599][INFO]: Waiting for pending navigations...
+[1687947325.600][INFO]: Done waiting for pending navigations. Status: ok
+[1687947325.640][INFO]: Waiting for pending navigations...
+[1687947325.641][INFO]: Done waiting for pending navigations. Status: ok
+[1687947325.641][INFO]: [e553232b0a6c845b83fdc59334866990] RESPONSE GetSource "\u003Chtml class=\"js svg flexbox csstransforms sass-opt-out-forms\" lang=\"en\">\u003C!--\u003C![endif]-->\u003Chead>\n\n\n    \n        \n    \n    \u003Cmeta charset=\"utf-8\">\n\u003Cmeta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\n..."
+[1687947328.252][INFO]: [e553232b0a6c845b83fdc59334866990] COMMAND FindElement {
+   "using": "xpath",
+   "value": "/html/body/div[3]/div/div/header/div[2]/div[3]/div/input"
+}
+[1687947328.252][INFO]: Waiting for pending navigations...
+[1687947328.253][INFO]: Done waiting for pending navigations. Status: ok
+[1687947328.263][INFO]: Waiting for pending navigations...
+[1687947328.264][INFO]: Done waiting for pending navigations. Status: ok
+[1687947328.264][INFO]: [e553232b0a6c845b83fdc59334866990] RESPONSE FindElement ERROR no such element: Unable to locate element: {"method":"xpath","selector":"/html/body/div[3]/div/div/header/div[2]/div[3]/div/input"}
+  (Session info: chrome=114.0.5735.198)
+[1687947328.771][INFO]: [e553232b0a6c845b83fdc59334866990] COMMAND FindElement {
+   "using": "xpath",
+   "value": "/html/body/div[3]/div/div/header/div[2]/div[3]/div/input"
+}
+[1687947328.771][INFO]: Waiting for pending navigations...
+[1687947328.772][INFO]: Done waiting for pending navigations. Status: ok
+[1687947328.780][INFO]: Waiting for pending navigations...
+[1687947328.781][INFO]: Done waiting for pending navigations. Status: ok
+[1687947328.781][INFO]: [e553232b0a6c845b83fdc59334866990] RESPONSE FindElement ERROR no such element: Unable to locate element: {"method":"xpath","selector":"/html/body/div[3]/div/div/header/div[2]/div[3]/div/input"}
+  (Session info: chrome=114.0.5735.198)
+[1687947329.285][INFO]: [e553232b0a6c845b83fdc59334866990] COMMAND FindElement {
+   "using": "xpath",
+   "value": "/html/body/div[3]/div/div/header/div[2]/div[3]/div/input"
+}
+[1687947329.286][INFO]: Waiting for pending navigations...
+[1687947329.286][INFO]: Done waiting for pending navigations. Status: ok
+[1687947329.296][INFO]: Waiting for pending navigations...
+[1687947329.297][INFO]: Done waiting for pending navigations. Status: ok
+[1687947329.297][INFO]: [e553232b0a6c845b83fdc59334866990] RESPONSE FindElement ERROR no such element: Unable to locate element: {"method":"xpath","selector":"/html/body/div[3]/div/div/header/div[2]/div[3]/div/input"}
+  (Session info: chrome=114.0.5735.198)
+[1687947329.802][INFO]: [e553232b0a6c845b83fdc59334866990] COMMAND FindElement {
+   "using": "xpath",
+   "value": "/html/body/div[3]/div/div/header/div[2]/div[3]/div/input"
+}
+[1687947329.802][INFO]: Waiting for pending navigations...
+[1687947329.838][INFO]: Done waiting for pending navigations. Status: ok
+[1687947329.844][INFO]: Waiting for pending navigations...
+[1687947329.844][INFO]: Done waiting for pending navigations. Status: ok
+[1687947329.845][INFO]: [e553232b0a6c845b83fdc59334866990] RESPONSE FindElement ERROR no such element: Unable to locate element: {"method":"xpath","selector":"/html/body/div[3]/div/div/header/div[2]/div[3]/div/input"}
+  (Session info: chrome=114.0.5735.198)
+[1687947330.350][INFO]: [e553232b0a6c845b83fdc59334866990] COMMAND FindElement {
+   "using": "xpath",
+   "value": "/html/body/div[3]/div/div/header/div[2]/div[3]/div/input"
+}
+[1687947330.350][INFO]: Waiting for pending navigations...
+[1687947330.351][INFO]: Done waiting for pending navigations. Status: ok
+[1687947330.359][INFO]: Waiting for pending navigations...
+[1687947330.359][INFO]: Done waiting for pending navigations. Status: ok
+[1687947330.359][INFO]: [e553232b0a6c845b83fdc59334866990] RESPONSE FindElement ERROR no such element: Unable to locate element: {"method":"xpath","selector":"/html/body/div[3]/div/div/header/div[2]/div[3]/div/input"}
+  (Session info: chrome=114.0.5735.198)
+[1687947330.864][INFO]: [e553232b0a6c845b83fdc59334866990] COMMAND FindElement {
+   "using": "xpath",
+   "value": "/html/body/div[3]/div/div/header/div[2]/div[3]/div/input"
+}
+[1687947330.865][INFO]: Waiting for pending navigations...
+[1687947330.883][INFO]: Done waiting for pending navigations. Status: ok
+[1687947330.900][INFO]: Waiting for pending navigations...
+[1687947330.906][INFO]: Done waiting for pending navigations. Status: ok
+[1687947330.906][INFO]: [e553232b0a6c845b83fdc59334866990] RESPONSE FindElement ERROR no such element: Unable to locate element: {"method":"xpath","selector":"/html/body/div[3]/div/div/header/div[2]/div[3]/div/input"}
+  (Session info: chrome=114.0.5735.198)
+[1687947331.409][INFO]: [e553232b0a6c845b83fdc59334866990] COMMAND FindElement {
+   "using": "xpath",
+   "value": "/html/body/div[3]/div/div/header/div[2]/div[3]/div/input"
+}
+[1687947331.409][INFO]: Waiting for pending navigations...
+[1687947331.409][INFO]: Done waiting for pending navigations. Status: ok
+[1687947331.413][INFO]: Waiting for pending navigations...
+[1687947331.413][INFO]: Done waiting for pending navigations. Status: ok
+[1687947331.413][INFO]: [e553232b0a6c845b83fdc59334866990] RESPONSE FindElement ERROR no such element: Unable to locate element: {"method":"xpath","selector":"/html/body/div[3]/div/div/header/div[2]/div[3]/div/input"}
+  (Session info: chrome=114.0.5735.198)
+[1687947331.916][INFO]: [e553232b0a6c845b83fdc59334866990] COMMAND FindElement {
+   "using": "xpath",
+   "value": "/html/body/div[3]/div/div/header/div[2]/div[3]/div/input"
+}
+[1687947331.916][INFO]: Waiting for pending navigations...
+[1687947334.279][INFO]: Done waiting for pending navigations. Status: ok
+[1687947334.286][INFO]: Waiting for pending navigations...
+[1687947334.286][INFO]: Done waiting for pending navigations. Status: ok
+[1687947334.286][INFO]: [e553232b0a6c845b83fdc59334866990] RESPONSE FindElement ERROR no such element: Unable to locate element: {"method":"xpath","selector":"/html/body/div[3]/div/div/header/div[2]/div[3]/div/input"}
+  (Session info: chrome=114.0.5735.198)
+[1687947334.789][INFO]: [e553232b0a6c845b83fdc59334866990] COMMAND GetSource {
+}
+[1687947334.789][INFO]: Waiting for pending navigations...
+[1687947334.790][INFO]: Done waiting for pending navigations. Status: ok
+[1687947334.823][INFO]: Waiting for pending navigations...
+[1687947334.825][INFO]: Done waiting for pending navigations. Status: ok
+[1687947334.825][INFO]: [e553232b0a6c845b83fdc59334866990] RESPONSE GetSource "\u003Chtml class=\"js svg flexbox csstransforms sass-opt-out-forms\" lang=\"en\">\u003C!--\u003C![endif]-->\u003Chead>\n\n\n    \n        \n    \n    \u003Cmeta charset=\"utf-8\">\n\u003Cmeta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\n..."
+[1687947334.965][INFO]: [e553232b0a6c845b83fdc59334866990] COMMAND FindElement {
+   "using": "xpath",
+   "value": "/html/body/div[3]/div/div/header/div[2]/div[3]/div/input"
+}
+[1687947334.966][INFO]: Waiting for pending navigations...
+[1687947334.966][INFO]: Done waiting for pending navigations. Status: ok
+[1687947334.972][INFO]: Waiting for pending navigations...
+[1687947334.972][INFO]: Done waiting for pending navigations. Status: ok
+[1687947334.972][INFO]: [e553232b0a6c845b83fdc59334866990] RESPONSE FindElement ERROR no such element: Unable to locate element: {"method":"xpath","selector":"/html/body/div[3]/div/div/header/div[2]/div[3]/div/input"}
+  (Session info: chrome=114.0.5735.198)
+[1687947335.034][INFO]: [e553232b0a6c845b83fdc59334866990] COMMAND FindElement {
+   "using": "xpath",
+   "value": "/html/body/div[4]/div/div/header/div/div/div/div/div[2]/div/input"
+}
+[1687947335.034][INFO]: Waiting for pending navigations...
+[1687947335.035][INFO]: Done waiting for pending navigations. Status: ok
+[1687947335.040][INFO]: Waiting for pending navigations...
+[1687947335.040][INFO]: Done waiting for pending navigations. Status: ok
+[1687947335.040][INFO]: [e553232b0a6c845b83fdc59334866990] RESPONSE FindElement {
+   "element-6066-11e4-a52e-4f735466cecf": "09B2D58C70A7E01A377FF3343B8DFAF1_element_60"
+}
+[1687947335.041][INFO]: [e553232b0a6c845b83fdc59334866990] COMMAND GetElementTagName {
+   "id": "09B2D58C70A7E01A377FF3343B8DFAF1_element_60"
+}
+[1687947335.041][INFO]: Waiting for pending navigations...
+[1687947335.041][INFO]: Done waiting for pending navigations. Status: ok
+[1687947335.045][INFO]: Waiting for pending navigations...
+[1687947335.045][INFO]: Done waiting for pending navigations. Status: ok
+[1687947335.045][INFO]: [e553232b0a6c845b83fdc59334866990] RESPONSE GetElementTagName "input"
+[1687947335.045][INFO]: [e553232b0a6c845b83fdc59334866990] COMMAND GetElementTagName {
+   "id": "09B2D58C70A7E01A377FF3343B8DFAF1_element_60"
+}
+[1687947335.045][INFO]: Waiting for pending navigations...
+[1687947335.045][INFO]: Done waiting for pending navigations. Status: ok
+[1687947335.046][INFO]: Waiting for pending navigations...
+[1687947335.046][INFO]: Done waiting for pending navigations. Status: ok
+[1687947335.046][INFO]: [e553232b0a6c845b83fdc59334866990] RESPONSE GetElementTagName "input"
+[1687947335.047][INFO]: [e553232b0a6c845b83fdc59334866990] COMMAND FindChildElements {
+   "id": "09B2D58C70A7E01A377FF3343B8DFAF1_element_60",
+   "using": "css selector",
+   "value": "a"
+}
+[1687947335.047][INFO]: Waiting for pending navigations...
+[1687947335.047][INFO]: Done waiting for pending navigations. Status: ok
+[1687947335.051][INFO]: Waiting for pending navigations...
+[1687947335.053][INFO]: Done waiting for pending navigations. Status: ok
+[1687947335.053][INFO]: [e553232b0a6c845b83fdc59334866990] RESPONSE FindChildElements [  ]
+[1687947335.053][INFO]: [e553232b0a6c845b83fdc59334866990] COMMAND ClickElement {
+   "id": "09B2D58C70A7E01A377FF3343B8DFAF1_element_60"
+}
+[1687947335.053][INFO]: Waiting for pending navigations...
+[1687947335.053][INFO]: Done waiting for pending navigations. Status: ok
+[1687947335.102][INFO]: Waiting for pending navigations...
+[1687947335.110][INFO]: Done waiting for pending navigations. Status: ok
+[1687947335.110][INFO]: [e553232b0a6c845b83fdc59334866990] RESPONSE ClickElement
+[1687947335.110][INFO]: [e553232b0a6c845b83fdc59334866990] COMMAND GetSource {
+}
+[1687947335.110][INFO]: Waiting for pending navigations...
+[1687947335.117][INFO]: Done waiting for pending navigations. Status: ok
+[1687947335.152][INFO]: Waiting for pending navigations...
+[1687947335.153][INFO]: Done waiting for pending navigations. Status: ok
+[1687947335.153][INFO]: [e553232b0a6c845b83fdc59334866990] RESPONSE GetSource "\u003Chtml class=\"js svg flexbox csstransforms sass-opt-out-forms\" lang=\"en\">\u003C!--\u003C![endif]-->\u003Chead>\n\n\n    \n        \n    \n    \u003Cmeta charset=\"utf-8\">\n\u003Cmeta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\n..."
+[1687947336.492][INFO]: [e553232b0a6c845b83fdc59334866990] COMMAND FindElement {
+   "using": "xpath",
+   "value": "/html/body/div[4]/div/div/div/form/input"
+}
+[1687947336.492][INFO]: Waiting for pending navigations...
+[1687947336.493][INFO]: Done waiting for pending navigations. Status: ok
+[1687947336.505][INFO]: Waiting for pending navigations...
+[1687947336.505][INFO]: Done waiting for pending navigations. Status: ok
+[1687947336.505][INFO]: [e553232b0a6c845b83fdc59334866990] RESPONSE FindElement ERROR no such element: Unable to locate element: {"method":"xpath","selector":"/html/body/div[4]/div/div/div/form/input"}
+  (Session info: chrome=114.0.5735.198)
+[1687947337.012][INFO]: [e553232b0a6c845b83fdc59334866990] COMMAND FindElement {
+   "using": "xpath",
+   "value": "/html/body/div[4]/div/div/div/form/input"
+}
+[1687947337.012][INFO]: Waiting for pending navigations...
+[1687947337.013][INFO]: Done waiting for pending navigations. Status: ok
+[1687947337.020][INFO]: Waiting for pending navigations...
+[1687947337.020][INFO]: Done waiting for pending navigations. Status: ok
+[1687947337.020][INFO]: [e553232b0a6c845b83fdc59334866990] RESPONSE FindElement ERROR no such element: Unable to locate element: {"method":"xpath","selector":"/html/body/div[4]/div/div/div/form/input"}
+  (Session info: chrome=114.0.5735.198)
+[1687947337.522][INFO]: [e553232b0a6c845b83fdc59334866990] COMMAND FindElement {
+   "using": "xpath",
+   "value": "/html/body/div[4]/div/div/div/form/input"
+}
+[1687947337.522][INFO]: Waiting for pending navigations...
+[1687947337.522][INFO]: Done waiting for pending navigations. Status: ok
+[1687947337.527][INFO]: Waiting for pending navigations...
+[1687947337.528][INFO]: Done waiting for pending navigations. Status: ok
+[1687947337.528][INFO]: [e553232b0a6c845b83fdc59334866990] RESPONSE FindElement ERROR no such element: Unable to locate element: {"method":"xpath","selector":"/html/body/div[4]/div/div/div/form/input"}
+  (Session info: chrome=114.0.5735.198)
+[1687947338.033][INFO]: [e553232b0a6c845b83fdc59334866990] COMMAND FindElement {
+   "using": "xpath",
+   "value": "/html/body/div[4]/div/div/div/form/input"
+}
+[1687947338.033][INFO]: Waiting for pending navigations...
+[1687947338.034][INFO]: Done waiting for pending navigations. Status: ok
+[1687947338.040][INFO]: Waiting for pending navigations...
+[1687947338.040][INFO]: Done waiting for pending navigations. Status: ok
+[1687947338.040][INFO]: [e553232b0a6c845b83fdc59334866990] RESPONSE FindElement ERROR no such element: Unable to locate element: {"method":"xpath","selector":"/html/body/div[4]/div/div/div/form/input"}
+  (Session info: chrome=114.0.5735.198)
+[1687947338.545][INFO]: [e553232b0a6c845b83fdc59334866990] COMMAND FindElement {
+   "using": "xpath",
+   "value": "/html/body/div[4]/div/div/div/form/input"
+}
+[1687947338.545][INFO]: Waiting for pending navigations...
+[1687947338.546][INFO]: Done waiting for pending navigations. Status: ok
+[1687947338.553][INFO]: Waiting for pending navigations...
+[1687947338.553][INFO]: Done waiting for pending navigations. Status: ok
+[1687947338.553][INFO]: [e553232b0a6c845b83fdc59334866990] RESPONSE FindElement ERROR no such element: Unable to locate element: {"method":"xpath","selector":"/html/body/div[4]/div/div/div/form/input"}
+  (Session info: chrome=114.0.5735.198)
+[1687947339.059][INFO]: [e553232b0a6c845b83fdc59334866990] COMMAND FindElement {
+   "using": "xpath",
+   "value": "/html/body/div[4]/div/div/div/form/input"
+}
+[1687947339.059][INFO]: Waiting for pending navigations...
+[1687947339.062][INFO]: Done waiting for pending navigations. Status: ok
+[1687947339.069][INFO]: Waiting for pending navigations...
+[1687947339.069][INFO]: Done waiting for pending navigations. Status: ok
+[1687947339.069][INFO]: [e553232b0a6c845b83fdc59334866990] RESPONSE FindElement ERROR no such element: Unable to locate element: {"method":"xpath","selector":"/html/body/div[4]/div/div/div/form/input"}
+  (Session info: chrome=114.0.5735.198)
+[1687947339.575][INFO]: [e553232b0a6c845b83fdc59334866990] COMMAND FindElement {
+   "using": "xpath",
+   "value": "/html/body/div[4]/div/div/div/form/input"
+}
+[1687947339.575][INFO]: Waiting for pending navigations...
+[1687947339.577][INFO]: Done waiting for pending navigations. Status: ok
+[1687947339.580][INFO]: Waiting for pending navigations...
+[1687947339.580][INFO]: Done waiting for pending navigations. Status: ok
+[1687947339.580][INFO]: [e553232b0a6c845b83fdc59334866990] RESPONSE FindElement ERROR no such element: Unable to locate element: {"method":"xpath","selector":"/html/body/div[4]/div/div/div/form/input"}
+  (Session info: chrome=114.0.5735.198)
+[1687947340.085][INFO]: [e553232b0a6c845b83fdc59334866990] COMMAND FindElement {
+   "using": "xpath",
+   "value": "/html/body/div[4]/div/div/div/form/input"
+}
+[1687947340.085][INFO]: Waiting for pending navigations...
+[1687947340.086][INFO]: Done waiting for pending navigations. Status: ok
+[1687947340.095][INFO]: Waiting for pending navigations...
+[1687947340.095][INFO]: Done waiting for pending navigations. Status: ok
+[1687947340.095][INFO]: [e553232b0a6c845b83fdc59334866990] RESPONSE FindElement ERROR no such element: Unable to locate element: {"method":"xpath","selector":"/html/body/div[4]/div/div/div/form/input"}
+  (Session info: chrome=114.0.5735.198)
+[1687947340.601][INFO]: [e553232b0a6c845b83fdc59334866990] COMMAND GetSource {
+}
+[1687947340.601][INFO]: Waiting for pending navigations...
+[1687947340.602][INFO]: Done waiting for pending navigations. Status: ok
+[1687947340.646][INFO]: Waiting for pending navigations...
+[1687947340.646][INFO]: Done waiting for pending navigations. Status: ok
+[1687947340.646][INFO]: [e553232b0a6c845b83fdc59334866990] RESPONSE GetSource "\u003Chtml class=\"js svg flexbox csstransforms sass-opt-out-forms\" lang=\"en\">\u003C!--\u003C![endif]-->\u003Chead>\n\n\n    \n        \n    \n    \u003Cmeta charset=\"utf-8\">\n\u003Cmeta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\n..."
+[1687947340.779][INFO]: [e553232b0a6c845b83fdc59334866990] COMMAND FindElement {
+   "using": "xpath",
+   "value": "/html/body/div[4]/div/div/div/form/input"
+}
+[1687947340.779][INFO]: Waiting for pending navigations...
+[1687947340.780][INFO]: Done waiting for pending navigations. Status: ok
+[1687947340.783][INFO]: Waiting for pending navigations...
+[1687947340.783][INFO]: Done waiting for pending navigations. Status: ok
+[1687947340.783][INFO]: [e553232b0a6c845b83fdc59334866990] RESPONSE FindElement ERROR no such element: Unable to locate element: {"method":"xpath","selector":"/html/body/div[4]/div/div/div/form/input"}
+  (Session info: chrome=114.0.5735.198)
+[1687947340.818][INFO]: [e553232b0a6c845b83fdc59334866990] COMMAND FindElement {
+   "using": "xpath",
+   "value": "/html/body/div[4]/div/div[4]/main/div/div/div[2]/div/div/div/div/div/div[2]/div/div/div/input"
+}
+[1687947340.818][INFO]: Waiting for pending navigations...
+[1687947340.819][INFO]: Done waiting for pending navigations. Status: ok
+[1687947340.824][INFO]: Waiting for pending navigations...
+[1687947340.824][INFO]: Done waiting for pending navigations. Status: ok
+[1687947340.824][INFO]: [e553232b0a6c845b83fdc59334866990] RESPONSE FindElement {
+   "element-6066-11e4-a52e-4f735466cecf": "09B2D58C70A7E01A377FF3343B8DFAF1_element_112"
+}
+[1687947340.825][INFO]: [e553232b0a6c845b83fdc59334866990] COMMAND ExecuteScript {
+   "args": [ {
+      "ELEMENT": "09B2D58C70A7E01A377FF3343B8DFAF1_element_112",
+      "element-6066-11e4-a52e-4f735466cecf": "09B2D58C70A7E01A377FF3343B8DFAF1_element_112"
+   }, "value" ],
+   "script": "return (function(){return function(){var d=this;function f(a){return\"string\"==typeof a};function h(a,b){this.code=a;this.a=l[a]||m;this.message=b||\"\";a=this.a.replace(/((?:^|\\s+)[a-z])/g,function(a){return a.toUpperCase().replace(/^[\\s\\xa0]+/g,\"\")});b=a.length-5;if(0>b||a.indexOf(\"Error\",b)!=b)a+=\"Error\";this.name=a;a=Error(this.message);a.name=this.name;this.stack=a.stack||\"\"}\n(function(){var a=Error;function b(){}b.prototype=a.prototype;h.b=a.prototype;h.prototype=new b;h.prototype.constructor=h;h.a=function(b,c,g){for(var e=Array(arguments.length-2),k=2;k\u003Carguments.length;k++)e[k-2]=arguments[k];return a.prototype[c].apply(b,e)}})();var m=\"unknown error\",l={15:\"element not selectable\",11:\"element not visible\"};l[31]=m;l[30]=m;l[24]=\"invalid cookie domain\";l[29]=\"invalid element coordinates\";l[12]=\"invalid element state\";l[32]=\"invalid selector\";l[51]=\"invalid selector\";\nl[52]=\"invalid selector\";l[17]=\"javascript error\";l[405]=\"unsupported operation\";l[34]=\"move target out of bounds\";l[27]=\"no such alert\";l[7]=\"no such element\";l[8]=\"no such frame\";l[23]=\"no such window\";l[28]=\"script timeout\";l[33]=\"session not created\";l[10]=\"stale element reference\";l[21]=\"timeout\";l[25]=\"unable to set cookie\";l[26]=\"unexpected alert open\";l[13]=m;l[9]=\"unknown command\";h.prototype.toString=function(){return this.name+\": \"+this.message};var n;a:{var p=d.navigator;if(p){var q=p.userAgent;if(q){n=q;break a}}n=\"\"}function r(a){return-1!=n.indexOf(a)};function t(a,b){for(var e=a.length,c=f(a)?a.split(\"\"):a,g=0;g\u003Ce;g++)g in c&&b.call(void 0,c[g],g,a)};function v(){return r(\"iPhone\")&&!r(\"iPod\")&&!r(\"iPad\")};function w(){return(r(\"Chrome\")||r(\"CriOS\"))&&!r(\"Edge\")};var x=r(\"Opera\"),y=r(\"Trident\")||r(\"MSIE\"),z=r(\"Edge\"),A=r(\"Gecko\")&&!(-1!=n.toLowerCase().indexOf(\"webkit\")&&!r(\"Edge\"))&&!(r(\"Trident\")||r(\"MSIE\"))&&!r(\"Edge\"),aa=-1!=n.toLowerCase().indexOf(\"webkit\")&&!r(\"Edge\");function B(){var a=d.document;return a?a.documentMode:void 0}var C;\na:{var D=\"\",E=function(){var a=n;if(A)return/rv\\:([^\\);]+)(\\)|;)/.exec(a);if(z)return/Edge\\/([\\d\\.]+)/.exec(a);if(y)return/\\b(?:MSIE|rv)[: ]([^\\);]+)(\\)|;)/.exec(a);if(aa)return/WebKit\\/(\\S+)/.exec(a);if(x)return/(?:Version)[ \\/]?(\\S+)/.exec(a)}();E&&(D=E?E[1]:\"\");if(y){var F=B();if(null!=F&&F>parseFloat(D)){C=String(F);break a}}C=D}var G;var H=d.document;G=H&&y?B()||(\"CSS1Compat\"==H.compatMode?parseInt(C,10):5):void 0;var ba=r(\"Firefox\"),ca=v()||r(\"iPod\"),da=r(\"iPad\"),I=r(\"Android\")&&!(w()||r(\"Firefox\")||r(\"Opera\")||r(\"Silk\")),ea=w(),J=r(\"Safari\")&&!(w()||r(\"Coast\")||r(\"Opera\")||r(\"Edge\")||r(\"Silk\")||r(\"Android\"))&&!(v()||r(\"iPad\")||r(\"iPod\"));function K(a){return(a=a.exec(n))?a[1]:\"\"}(function(){if(ba)return K(/Firefox\\/([0-9.]+)/);if(y||z||x)return C;if(ea)return v()||r(\"iPad\")||r(\"iPod\")?K(/CriOS\\/([0-9.]+)/):K(/Chrome\\/([0-9.]+)/);if(J&&!(v()||r(\"iPad\")||r(\"iPod\")))return K(/Version\\/([0-9.]+)/);if(ca||da){var a=/Version\\/(\\S+).*Mobile\\/(\\S+)/.exec(n);if(a)return a[1]+\".\"+a[2]}else if(I)return(a=K(/Android\\s+([0-9.]+)/))?a:K(/Version\\/([0-9.]+)/);return\"\"})();var L,M=function(){if(!A)return!1;var a=d.Components;if(!a)return!1;try{if(!a.classes)return!1}catch(g){return!1}var b=a.classes,a=a.interfaces,e=b[\"@mozilla.org/xpcom/version-comparator;1\"].getService(a.nsIVersionComparator),c=b[\"@mozilla.org/xre/app-info;1\"].getService(a.nsIXULAppInfo).version;L=function(a){e.compare(c,\"\"+a)};return!0}(),N=y&&!(8\u003C=Number(G)),fa=y&&!(9\u003C=Number(G));I&&M&&L(2.3);I&&M&&L(4);J&&M&&L(6);var ga={SCRIPT:1,STYLE:1,HEAD:1,IFRAME:1,OBJECT:1},O={IMG:\" \",BR:\"\\n\"};function P(a,b,e){if(!(a.nodeName in ga))if(3==a.nodeType)e?b.push(String(a.nodeValue).replace(/(\\r\\n|\\r|\\n)/g,\"\")):b.push(a.nodeValue);else if(a.nodeName in O)b.push(O[a.nodeName]);else for(a=a.firstChild;a;)P(a,b,e),a=a.nextSibling};function Q(a,b){b=b.toLowerCase();return\"style\"==b?ha(a.style.cssText):N&&\"value\"==b&&R(a,\"INPUT\")?a.value:fa&&!0===a[b]?String(a.getAttribute(b)):(a=a.getAttributeNode(b))&&a.specified?a.value:null}var ia=/[;]+(?=(?:(?:[^\"]*\"){2})*[^\"]*$)(?=(?:(?:[^']*'){2})*[^']*$)(?=(?:[^()]*\\([^()]*\\))*[^()]*$)/;\nfunction ha(a){var b=[];t(a.split(ia),function(a){var c=a.indexOf(\":\");0\u003Cc&&(a=[a.slice(0,c),a.slice(c+1)],2==a.length&&b.push(a[0].toLowerCase(),\":\",a[1],\";\"))});b=b.join(\"\");return b=\";\"==b.charAt(b.length-1)?b:b+\";\"}function S(a,b){N&&\"value\"==b&&R(a,\"OPTION\")&&null===Q(a,\"value\")?(b=[],P(a,b,!1),a=b.join(\"\")):a=a[b];return a}function R(a,b){b&&\"string\"!==typeof b&&(b=b.toString());return!!a&&1==a.nodeType&&(!b||a.tagName.toUpperCase()==b)}\nfunction T(a){return R(a,\"OPTION\")?!0:R(a,\"INPUT\")?(a=a.type.toLowerCase(),\"checkbox\"==a||\"radio\"==a):!1};var ja={\"class\":\"className\",readonly:\"readOnly\"},U=\"allowfullscreen allowpaymentrequest allowusermedia async autofocus autoplay checked compact complete controls declare default defaultchecked defaultselected defer disabled ended formnovalidate hidden indeterminate iscontenteditable ismap itemscope loop multiple muted nohref nomodule noresize noshade novalidate nowrap open paused playsinline pubdate readonly required reversed scoped seamless seeking selected truespeed typemustmatch willvalidate\".split(\" \");function V(a,b){var e=null,c=b.toLowerCase();if(\"style\"==c)return(e=a.style)&&!f(e)&&(e=e.cssText),e;if((\"selected\"==c||\"checked\"==c)&&T(a)){if(!T(a))throw new h(15,\"Element is not selectable\");b=\"selected\";e=a.type&&a.type.toLowerCase();if(\"checkbox\"==e||\"radio\"==e)b=\"checked\";return S(a,b)?\"true\":null}var g=R(a,\"A\");if(R(a,\"IMG\")&&\"src\"==c||g&&\"href\"==c)return(e=Q(a,c))&&(e=S(a,c)),e;if(\"spellcheck\"==c){e=Q(a,c);if(null!==e){if(\"false\"==e.toLowerCase())return\"false\";if(\"true\"==e.toLowerCase())return\"true\"}return S(a,\nc)+\"\"}g=ja[b]||b;a:if(f(U))c=f(c)&&1==c.length?U.indexOf(c,0):-1;else{for(var u=0;u\u003CU.length;u++)if(u in U&&U[u]===c){c=u;break a}c=-1}if(0\u003C=c)return(e=null!==Q(a,b)||S(a,g))?\"true\":null;try{var k=S(a,g)}catch(ka){}(c=null==k)||(c=typeof k,c=\"object\"==c&&null!=k||\"function\"==c);c?e=Q(a,b):e=k;return null!=e?e.toString():null}var W=[\"_\"],X=d;W[0]in X||!X.execScript||X.execScript(\"var \"+W[0]);\nfor(var Y;W.length&&(Y=W.shift());){var Z;if(Z=!W.length)Z=void 0!==V;Z?X[Y]=V:X[Y]&&X[Y]!==Object.prototype[Y]?X=X[Y]:X=X[Y]={}};; return this._.apply(null,arguments);}.apply({navigator:typeof window!='undefined'?window.navigator:null,document:typeof window!='undefined'?window.document:null}, arguments);}\n).apply(null, arguments);"
+}
+[1687947340.825][INFO]: Waiting for pending navigations...
+[1687947340.825][INFO]: Done waiting for pending navigations. Status: ok
+[1687947340.827][INFO]: Waiting for pending navigations...
+[1687947340.827][INFO]: Done waiting for pending navigations. Status: ok
+[1687947340.827][INFO]: [e553232b0a6c845b83fdc59334866990] RESPONSE ExecuteScript ""
+[1687947340.827][INFO]: [e553232b0a6c845b83fdc59334866990] COMMAND GetElementText {
+   "id": "09B2D58C70A7E01A377FF3343B8DFAF1_element_112"
+}
+[1687947340.827][INFO]: Waiting for pending navigations...
+[1687947340.828][INFO]: Done waiting for pending navigations. Status: ok
+[1687947340.832][INFO]: Waiting for pending navigations...
+[1687947340.833][INFO]: Done waiting for pending navigations. Status: ok
+[1687947340.833][INFO]: [e553232b0a6c845b83fdc59334866990] RESPONSE GetElementText ""
+[1687947340.833][INFO]: [e553232b0a6c845b83fdc59334866990] COMMAND TypeElement {
+   "id": "09B2D58C70A7E01A377FF3343B8DFAF1_element_112",
+   "text": "watch",
+   "value": [ "watch" ]
+}
+[1687947340.833][INFO]: Waiting for pending navigations...
+[1687947340.833][INFO]: Done waiting for pending navigations. Status: ok
+[1687947340.846][INFO]: Waiting for pending navigations...
+[1687947340.846][INFO]: Done waiting for pending navigations. Status: ok
+[1687947340.846][INFO]: [e553232b0a6c845b83fdc59334866990] RESPONSE TypeElement ERROR element not interactable
+  (Session info: chrome=114.0.5735.198)
+[1687947340.847][INFO]: [e553232b0a6c845b83fdc59334866990] COMMAND ExecuteScript {
+   "args": [ {
+      "ELEMENT": "09B2D58C70A7E01A377FF3343B8DFAF1_element_112",
+      "element-6066-11e4-a52e-4f735466cecf": "09B2D58C70A7E01A377FF3343B8DFAF1_element_112"
+   } ],
+   "script": "arguments[0].value='watch';"
+}
+[1687947340.847][INFO]: Waiting for pending navigations...
+[1687947340.847][INFO]: Done waiting for pending navigations. Status: ok
+[1687947340.848][INFO]: Waiting for pending navigations...
+[1687947340.849][INFO]: Done waiting for pending navigations. Status: ok
+[1687947340.849][INFO]: [e553232b0a6c845b83fdc59334866990] RESPONSE ExecuteScript null
+[1687947340.849][INFO]: [e553232b0a6c845b83fdc59334866990] COMMAND ExecuteScript {
+   "args": [ {
+      "ELEMENT": "09B2D58C70A7E01A377FF3343B8DFAF1_element_112",
+      "element-6066-11e4-a52e-4f735466cecf": "09B2D58C70A7E01A377FF3343B8DFAF1_element_112"
+   }, "value" ],
+   "script": "return (function(){return function(){var d=this;function f(a){return\"string\"==typeof a};function h(a,b){this.code=a;this.a=l[a]||m;this.message=b||\"\";a=this.a.replace(/((?:^|\\s+)[a-z])/g,function(a){return a.toUpperCase().replace(/^[\\s\\xa0]+/g,\"\")});b=a.length-5;if(0>b||a.indexOf(\"Error\",b)!=b)a+=\"Error\";this.name=a;a=Error(this.message);a.name=this.name;this.stack=a.stack||\"\"}\n(function(){var a=Error;function b(){}b.prototype=a.prototype;h.b=a.prototype;h.prototype=new b;h.prototype.constructor=h;h.a=function(b,c,g){for(var e=Array(arguments.length-2),k=2;k\u003Carguments.length;k++)e[k-2]=arguments[k];return a.prototype[c].apply(b,e)}})();var m=\"unknown error\",l={15:\"element not selectable\",11:\"element not visible\"};l[31]=m;l[30]=m;l[24]=\"invalid cookie domain\";l[29]=\"invalid element coordinates\";l[12]=\"invalid element state\";l[32]=\"invalid selector\";l[51]=\"invalid selector\";\nl[52]=\"invalid selector\";l[17]=\"javascript error\";l[405]=\"unsupported operation\";l[34]=\"move target out of bounds\";l[27]=\"no such alert\";l[7]=\"no such element\";l[8]=\"no such frame\";l[23]=\"no such window\";l[28]=\"script timeout\";l[33]=\"session not created\";l[10]=\"stale element reference\";l[21]=\"timeout\";l[25]=\"unable to set cookie\";l[26]=\"unexpected alert open\";l[13]=m;l[9]=\"unknown command\";h.prototype.toString=function(){return this.name+\": \"+this.message};var n;a:{var p=d.navigator;if(p){var q=p.userAgent;if(q){n=q;break a}}n=\"\"}function r(a){return-1!=n.indexOf(a)};function t(a,b){for(var e=a.length,c=f(a)?a.split(\"\"):a,g=0;g\u003Ce;g++)g in c&&b.call(void 0,c[g],g,a)};function v(){return r(\"iPhone\")&&!r(\"iPod\")&&!r(\"iPad\")};function w(){return(r(\"Chrome\")||r(\"CriOS\"))&&!r(\"Edge\")};var x=r(\"Opera\"),y=r(\"Trident\")||r(\"MSIE\"),z=r(\"Edge\"),A=r(\"Gecko\")&&!(-1!=n.toLowerCase().indexOf(\"webkit\")&&!r(\"Edge\"))&&!(r(\"Trident\")||r(\"MSIE\"))&&!r(\"Edge\"),aa=-1!=n.toLowerCase().indexOf(\"webkit\")&&!r(\"Edge\");function B(){var a=d.document;return a?a.documentMode:void 0}var C;\na:{var D=\"\",E=function(){var a=n;if(A)return/rv\\:([^\\);]+)(\\)|;)/.exec(a);if(z)return/Edge\\/([\\d\\.]+)/.exec(a);if(y)return/\\b(?:MSIE|rv)[: ]([^\\);]+)(\\)|;)/.exec(a);if(aa)return/WebKit\\/(\\S+)/.exec(a);if(x)return/(?:Version)[ \\/]?(\\S+)/.exec(a)}();E&&(D=E?E[1]:\"\");if(y){var F=B();if(null!=F&&F>parseFloat(D)){C=String(F);break a}}C=D}var G;var H=d.document;G=H&&y?B()||(\"CSS1Compat\"==H.compatMode?parseInt(C,10):5):void 0;var ba=r(\"Firefox\"),ca=v()||r(\"iPod\"),da=r(\"iPad\"),I=r(\"Android\")&&!(w()||r(\"Firefox\")||r(\"Opera\")||r(\"Silk\")),ea=w(),J=r(\"Safari\")&&!(w()||r(\"Coast\")||r(\"Opera\")||r(\"Edge\")||r(\"Silk\")||r(\"Android\"))&&!(v()||r(\"iPad\")||r(\"iPod\"));function K(a){return(a=a.exec(n))?a[1]:\"\"}(function(){if(ba)return K(/Firefox\\/([0-9.]+)/);if(y||z||x)return C;if(ea)return v()||r(\"iPad\")||r(\"iPod\")?K(/CriOS\\/([0-9.]+)/):K(/Chrome\\/([0-9.]+)/);if(J&&!(v()||r(\"iPad\")||r(\"iPod\")))return K(/Version\\/([0-9.]+)/);if(ca||da){var a=/Version\\/(\\S+).*Mobile\\/(\\S+)/.exec(n);if(a)return a[1]+\".\"+a[2]}else if(I)return(a=K(/Android\\s+([0-9.]+)/))?a:K(/Version\\/([0-9.]+)/);return\"\"})();var L,M=function(){if(!A)return!1;var a=d.Components;if(!a)return!1;try{if(!a.classes)return!1}catch(g){return!1}var b=a.classes,a=a.interfaces,e=b[\"@mozilla.org/xpcom/version-comparator;1\"].getService(a.nsIVersionComparator),c=b[\"@mozilla.org/xre/app-info;1\"].getService(a.nsIXULAppInfo).version;L=function(a){e.compare(c,\"\"+a)};return!0}(),N=y&&!(8\u003C=Number(G)),fa=y&&!(9\u003C=Number(G));I&&M&&L(2.3);I&&M&&L(4);J&&M&&L(6);var ga={SCRIPT:1,STYLE:1,HEAD:1,IFRAME:1,OBJECT:1},O={IMG:\" \",BR:\"\\n\"};function P(a,b,e){if(!(a.nodeName in ga))if(3==a.nodeType)e?b.push(String(a.nodeValue).replace(/(\\r\\n|\\r|\\n)/g,\"\")):b.push(a.nodeValue);else if(a.nodeName in O)b.push(O[a.nodeName]);else for(a=a.firstChild;a;)P(a,b,e),a=a.nextSibling};function Q(a,b){b=b.toLowerCase();return\"style\"==b?ha(a.style.cssText):N&&\"value\"==b&&R(a,\"INPUT\")?a.value:fa&&!0===a[b]?String(a.getAttribute(b)):(a=a.getAttributeNode(b))&&a.specified?a.value:null}var ia=/[;]+(?=(?:(?:[^\"]*\"){2})*[^\"]*$)(?=(?:(?:[^']*'){2})*[^']*$)(?=(?:[^()]*\\([^()]*\\))*[^()]*$)/;\nfunction ha(a){var b=[];t(a.split(ia),function(a){var c=a.indexOf(\":\");0\u003Cc&&(a=[a.slice(0,c),a.slice(c+1)],2==a.length&&b.push(a[0].toLowerCase(),\":\",a[1],\";\"))});b=b.join(\"\");return b=\";\"==b.charAt(b.length-1)?b:b+\";\"}function S(a,b){N&&\"value\"==b&&R(a,\"OPTION\")&&null===Q(a,\"value\")?(b=[],P(a,b,!1),a=b.join(\"\")):a=a[b];return a}function R(a,b){b&&\"string\"!==typeof b&&(b=b.toString());return!!a&&1==a.nodeType&&(!b||a.tagName.toUpperCase()==b)}\nfunction T(a){return R(a,\"OPTION\")?!0:R(a,\"INPUT\")?(a=a.type.toLowerCase(),\"checkbox\"==a||\"radio\"==a):!1};var ja={\"class\":\"className\",readonly:\"readOnly\"},U=\"allowfullscreen allowpaymentrequest allowusermedia async autofocus autoplay checked compact complete controls declare default defaultchecked defaultselected defer disabled ended formnovalidate hidden indeterminate iscontenteditable ismap itemscope loop multiple muted nohref nomodule noresize noshade novalidate nowrap open paused playsinline pubdate readonly required reversed scoped seamless seeking selected truespeed typemustmatch willvalidate\".split(\" \");function V(a,b){var e=null,c=b.toLowerCase();if(\"style\"==c)return(e=a.style)&&!f(e)&&(e=e.cssText),e;if((\"selected\"==c||\"checked\"==c)&&T(a)){if(!T(a))throw new h(15,\"Element is not selectable\");b=\"selected\";e=a.type&&a.type.toLowerCase();if(\"checkbox\"==e||\"radio\"==e)b=\"checked\";return S(a,b)?\"true\":null}var g=R(a,\"A\");if(R(a,\"IMG\")&&\"src\"==c||g&&\"href\"==c)return(e=Q(a,c))&&(e=S(a,c)),e;if(\"spellcheck\"==c){e=Q(a,c);if(null!==e){if(\"false\"==e.toLowerCase())return\"false\";if(\"true\"==e.toLowerCase())return\"true\"}return S(a,\nc)+\"\"}g=ja[b]||b;a:if(f(U))c=f(c)&&1==c.length?U.indexOf(c,0):-1;else{for(var u=0;u\u003CU.length;u++)if(u in U&&U[u]===c){c=u;break a}c=-1}if(0\u003C=c)return(e=null!==Q(a,b)||S(a,g))?\"true\":null;try{var k=S(a,g)}catch(ka){}(c=null==k)||(c=typeof k,c=\"object\"==c&&null!=k||\"function\"==c);c?e=Q(a,b):e=k;return null!=e?e.toString():null}var W=[\"_\"],X=d;W[0]in X||!X.execScript||X.execScript(\"var \"+W[0]);\nfor(var Y;W.length&&(Y=W.shift());){var Z;if(Z=!W.length)Z=void 0!==V;Z?X[Y]=V:X[Y]&&X[Y]!==Object.prototype[Y]?X=X[Y]:X=X[Y]={}};; return this._.apply(null,arguments);}.apply({navigator:typeof window!='undefined'?window.navigator:null,document:typeof window!='undefined'?window.document:null}, arguments);}\n).apply(null, arguments);"
+}
+[1687947340.849][INFO]: Waiting for pending navigations...
+[1687947340.849][INFO]: Done waiting for pending navigations. Status: ok
+[1687947340.851][INFO]: Waiting for pending navigations...
+[1687947340.851][INFO]: Done waiting for pending navigations. Status: ok
+[1687947340.851][INFO]: [e553232b0a6c845b83fdc59334866990] RESPONSE ExecuteScript "watch"
+[1687947340.851][INFO]: [e553232b0a6c845b83fdc59334866990] COMMAND GetElementText {
+   "id": "09B2D58C70A7E01A377FF3343B8DFAF1_element_112"
+}
+[1687947340.851][INFO]: Waiting for pending navigations...
+[1687947340.852][INFO]: Done waiting for pending navigations. Status: ok
+[1687947340.854][INFO]: Waiting for pending navigations...
+[1687947340.854][INFO]: Done waiting for pending navigations. Status: ok
+[1687947340.854][INFO]: [e553232b0a6c845b83fdc59334866990] RESPONSE GetElementText ""
+[1687947340.855][INFO]: [e553232b0a6c845b83fdc59334866990] COMMAND GetActiveElement {
+}
+[1687947340.855][INFO]: Waiting for pending navigations...
+[1687947340.855][INFO]: Done waiting for pending navigations. Status: ok
+[1687947340.856][INFO]: Waiting for pending navigations...
+[1687947340.856][INFO]: Done waiting for pending navigations. Status: ok
+[1687947340.856][INFO]: [e553232b0a6c845b83fdc59334866990] RESPONSE GetActiveElement {
+   "element-6066-11e4-a52e-4f735466cecf": "09B2D58C70A7E01A377FF3343B8DFAF1_element_113"
+}
+[1687947340.857][INFO]: [e553232b0a6c845b83fdc59334866990] COMMAND ExecuteScript {
+   "args": [ {
+      "ELEMENT": "09B2D58C70A7E01A377FF3343B8DFAF1_element_113",
+      "element-6066-11e4-a52e-4f735466cecf": "09B2D58C70A7E01A377FF3343B8DFAF1_element_113"
+   }, "value" ],
+   "script": "return (function(){return function(){var d=this;function f(a){return\"string\"==typeof a};function h(a,b){this.code=a;this.a=l[a]||m;this.message=b||\"\";a=this.a.replace(/((?:^|\\s+)[a-z])/g,function(a){return a.toUpperCase().replace(/^[\\s\\xa0]+/g,\"\")});b=a.length-5;if(0>b||a.indexOf(\"Error\",b)!=b)a+=\"Error\";this.name=a;a=Error(this.message);a.name=this.name;this.stack=a.stack||\"\"}\n(function(){var a=Error;function b(){}b.prototype=a.prototype;h.b=a.prototype;h.prototype=new b;h.prototype.constructor=h;h.a=function(b,c,g){for(var e=Array(arguments.length-2),k=2;k\u003Carguments.length;k++)e[k-2]=arguments[k];return a.prototype[c].apply(b,e)}})();var m=\"unknown error\",l={15:\"element not selectable\",11:\"element not visible\"};l[31]=m;l[30]=m;l[24]=\"invalid cookie domain\";l[29]=\"invalid element coordinates\";l[12]=\"invalid element state\";l[32]=\"invalid selector\";l[51]=\"invalid selector\";\nl[52]=\"invalid selector\";l[17]=\"javascript error\";l[405]=\"unsupported operation\";l[34]=\"move target out of bounds\";l[27]=\"no such alert\";l[7]=\"no such element\";l[8]=\"no such frame\";l[23]=\"no such window\";l[28]=\"script timeout\";l[33]=\"session not created\";l[10]=\"stale element reference\";l[21]=\"timeout\";l[25]=\"unable to set cookie\";l[26]=\"unexpected alert open\";l[13]=m;l[9]=\"unknown command\";h.prototype.toString=function(){return this.name+\": \"+this.message};var n;a:{var p=d.navigator;if(p){var q=p.userAgent;if(q){n=q;break a}}n=\"\"}function r(a){return-1!=n.indexOf(a)};function t(a,b){for(var e=a.length,c=f(a)?a.split(\"\"):a,g=0;g\u003Ce;g++)g in c&&b.call(void 0,c[g],g,a)};function v(){return r(\"iPhone\")&&!r(\"iPod\")&&!r(\"iPad\")};function w(){return(r(\"Chrome\")||r(\"CriOS\"))&&!r(\"Edge\")};var x=r(\"Opera\"),y=r(\"Trident\")||r(\"MSIE\"),z=r(\"Edge\"),A=r(\"Gecko\")&&!(-1!=n.toLowerCase().indexOf(\"webkit\")&&!r(\"Edge\"))&&!(r(\"Trident\")||r(\"MSIE\"))&&!r(\"Edge\"),aa=-1!=n.toLowerCase().indexOf(\"webkit\")&&!r(\"Edge\");function B(){var a=d.document;return a?a.documentMode:void 0}var C;\na:{var D=\"\",E=function(){var a=n;if(A)return/rv\\:([^\\);]+)(\\)|;)/.exec(a);if(z)return/Edge\\/([\\d\\.]+)/.exec(a);if(y)return/\\b(?:MSIE|rv)[: ]([^\\);]+)(\\)|;)/.exec(a);if(aa)return/WebKit\\/(\\S+)/.exec(a);if(x)return/(?:Version)[ \\/]?(\\S+)/.exec(a)}();E&&(D=E?E[1]:\"\");if(y){var F=B();if(null!=F&&F>parseFloat(D)){C=String(F);break a}}C=D}var G;var H=d.document;G=H&&y?B()||(\"CSS1Compat\"==H.compatMode?parseInt(C,10):5):void 0;var ba=r(\"Firefox\"),ca=v()||r(\"iPod\"),da=r(\"iPad\"),I=r(\"Android\")&&!(w()||r(\"Firefox\")||r(\"Opera\")||r(\"Silk\")),ea=w(),J=r(\"Safari\")&&!(w()||r(\"Coast\")||r(\"Opera\")||r(\"Edge\")||r(\"Silk\")||r(\"Android\"))&&!(v()||r(\"iPad\")||r(\"iPod\"));function K(a){return(a=a.exec(n))?a[1]:\"\"}(function(){if(ba)return K(/Firefox\\/([0-9.]+)/);if(y||z||x)return C;if(ea)return v()||r(\"iPad\")||r(\"iPod\")?K(/CriOS\\/([0-9.]+)/):K(/Chrome\\/([0-9.]+)/);if(J&&!(v()||r(\"iPad\")||r(\"iPod\")))return K(/Version\\/([0-9.]+)/);if(ca||da){var a=/Version\\/(\\S+).*Mobile\\/(\\S+)/.exec(n);if(a)return a[1]+\".\"+a[2]}else if(I)return(a=K(/Android\\s+([0-9.]+)/))?a:K(/Version\\/([0-9.]+)/);return\"\"})();var L,M=function(){if(!A)return!1;var a=d.Components;if(!a)return!1;try{if(!a.classes)return!1}catch(g){return!1}var b=a.classes,a=a.interfaces,e=b[\"@mozilla.org/xpcom/version-comparator;1\"].getService(a.nsIVersionComparator),c=b[\"@mozilla.org/xre/app-info;1\"].getService(a.nsIXULAppInfo).version;L=function(a){e.compare(c,\"\"+a)};return!0}(),N=y&&!(8\u003C=Number(G)),fa=y&&!(9\u003C=Number(G));I&&M&&L(2.3);I&&M&&L(4);J&&M&&L(6);var ga={SCRIPT:1,STYLE:1,HEAD:1,IFRAME:1,OBJECT:1},O={IMG:\" \",BR:\"\\n\"};function P(a,b,e){if(!(a.nodeName in ga))if(3==a.nodeType)e?b.push(String(a.nodeValue).replace(/(\\r\\n|\\r|\\n)/g,\"\")):b.push(a.nodeValue);else if(a.nodeName in O)b.push(O[a.nodeName]);else for(a=a.firstChild;a;)P(a,b,e),a=a.nextSibling};function Q(a,b){b=b.toLowerCase();return\"style\"==b?ha(a.style.cssText):N&&\"value\"==b&&R(a,\"INPUT\")?a.value:fa&&!0===a[b]?String(a.getAttribute(b)):(a=a.getAttributeNode(b))&&a.specified?a.value:null}var ia=/[;]+(?=(?:(?:[^\"]*\"){2})*[^\"]*$)(?=(?:(?:[^']*'){2})*[^']*$)(?=(?:[^()]*\\([^()]*\\))*[^()]*$)/;\nfunction ha(a){var b=[];t(a.split(ia),function(a){var c=a.indexOf(\":\");0\u003Cc&&(a=[a.slice(0,c),a.slice(c+1)],2==a.length&&b.push(a[0].toLowerCase(),\":\",a[1],\";\"))});b=b.join(\"\");return b=\";\"==b.charAt(b.length-1)?b:b+\";\"}function S(a,b){N&&\"value\"==b&&R(a,\"OPTION\")&&null===Q(a,\"value\")?(b=[],P(a,b,!1),a=b.join(\"\")):a=a[b];return a}function R(a,b){b&&\"string\"!==typeof b&&(b=b.toString());return!!a&&1==a.nodeType&&(!b||a.tagName.toUpperCase()==b)}\nfunction T(a){return R(a,\"OPTION\")?!0:R(a,\"INPUT\")?(a=a.type.toLowerCase(),\"checkbox\"==a||\"radio\"==a):!1};var ja={\"class\":\"className\",readonly:\"readOnly\"},U=\"allowfullscreen allowpaymentrequest allowusermedia async autofocus autoplay checked compact complete controls declare default defaultchecked defaultselected defer disabled ended formnovalidate hidden indeterminate iscontenteditable ismap itemscope loop multiple muted nohref nomodule noresize noshade novalidate nowrap open paused playsinline pubdate readonly required reversed scoped seamless seeking selected truespeed typemustmatch willvalidate\".split(\" \");function V(a,b){var e=null,c=b.toLowerCase();if(\"style\"==c)return(e=a.style)&&!f(e)&&(e=e.cssText),e;if((\"selected\"==c||\"checked\"==c)&&T(a)){if(!T(a))throw new h(15,\"Element is not selectable\");b=\"selected\";e=a.type&&a.type.toLowerCase();if(\"checkbox\"==e||\"radio\"==e)b=\"checked\";return S(a,b)?\"true\":null}var g=R(a,\"A\");if(R(a,\"IMG\")&&\"src\"==c||g&&\"href\"==c)return(e=Q(a,c))&&(e=S(a,c)),e;if(\"spellcheck\"==c){e=Q(a,c);if(null!==e){if(\"false\"==e.toLowerCase())return\"false\";if(\"true\"==e.toLowerCase())return\"true\"}return S(a,\nc)+\"\"}g=ja[b]||b;a:if(f(U))c=f(c)&&1==c.length?U.indexOf(c,0):-1;else{for(var u=0;u\u003CU.length;u++)if(u in U&&U[u]===c){c=u;break a}c=-1}if(0\u003C=c)return(e=null!==Q(a,b)||S(a,g))?\"true\":null;try{var k=S(a,g)}catch(ka){}(c=null==k)||(c=typeof k,c=\"object\"==c&&null!=k||\"function\"==c);c?e=Q(a,b):e=k;return null!=e?e.toString():null}var W=[\"_\"],X=d;W[0]in X||!X.execScript||X.execScript(\"var \"+W[0]);\nfor(var Y;W.length&&(Y=W.shift());){var Z;if(Z=!W.length)Z=void 0!==V;Z?X[Y]=V:X[Y]&&X[Y]!==Object.prototype[Y]?X=X[Y]:X=X[Y]={}};; return this._.apply(null,arguments);}.apply({navigator:typeof window!='undefined'?window.navigator:null,document:typeof window!='undefined'?window.document:null}, arguments);}\n).apply(null, arguments);"
+}
+[1687947340.857][INFO]: Waiting for pending navigations...
+[1687947340.857][INFO]: Done waiting for pending navigations. Status: ok
+[1687947340.858][INFO]: Waiting for pending navigations...
+[1687947340.858][INFO]: Done waiting for pending navigations. Status: ok
+[1687947340.858][INFO]: [e553232b0a6c845b83fdc59334866990] RESPONSE ExecuteScript null
+[1687947340.859][INFO]: [e553232b0a6c845b83fdc59334866990] COMMAND GetElementText {
+   "id": "09B2D58C70A7E01A377FF3343B8DFAF1_element_113"
+}
+[1687947340.859][INFO]: Waiting for pending navigations...
+[1687947340.859][INFO]: Done waiting for pending navigations. Status: ok
+[1687947341.331][INFO]: Waiting for pending navigations...
+[1687947341.340][INFO]: Done waiting for pending navigations. Status: ok
+[1687947341.340][INFO]: [e553232b0a6c845b83fdc59334866990] RESPONSE GetElementText "Seen it cheaper? Ask our team for a JB Deal. Live chat with us or call 13 52 44.\nDismiss announcement\nSet my location\nNew\nStores\nWish List\nAccount\nCart\nProducts\nBrands\nDeals & Catalogues\nEOFY Sale\n..."
+[1687947341.340][INFO]: [e553232b0a6c845b83fdc59334866990] COMMAND TypeElement {
+   "id": "09B2D58C70A7E01A377FF3343B8DFAF1_element_113",
+   "text": "",
+   "value": [ "" ]
+}
+[1687947341.340][INFO]: Waiting for pending navigations...
+[1687947341.341][INFO]: Done waiting for pending navigations. Status: ok
+[1687947341.358][INFO]: Waiting for pending navigations...
+[1687947341.359][INFO]: Done waiting for pending navigations. Status: ok
+[1687947341.359][INFO]: [e553232b0a6c845b83fdc59334866990] RESPONSE TypeElement
+[1687947341.359][INFO]: [e553232b0a6c845b83fdc59334866990] COMMAND ExecuteScript {
+   "args": [ {
+      "ELEMENT": "09B2D58C70A7E01A377FF3343B8DFAF1_element_113",
+      "element-6066-11e4-a52e-4f735466cecf": "09B2D58C70A7E01A377FF3343B8DFAF1_element_113"
+   }, "value" ],
+   "script": "return (function(){return function(){var d=this;function f(a){return\"string\"==typeof a};function h(a,b){this.code=a;this.a=l[a]||m;this.message=b||\"\";a=this.a.replace(/((?:^|\\s+)[a-z])/g,function(a){return a.toUpperCase().replace(/^[\\s\\xa0]+/g,\"\")});b=a.length-5;if(0>b||a.indexOf(\"Error\",b)!=b)a+=\"Error\";this.name=a;a=Error(this.message);a.name=this.name;this.stack=a.stack||\"\"}\n(function(){var a=Error;function b(){}b.prototype=a.prototype;h.b=a.prototype;h.prototype=new b;h.prototype.constructor=h;h.a=function(b,c,g){for(var e=Array(arguments.length-2),k=2;k\u003Carguments.length;k++)e[k-2]=arguments[k];return a.prototype[c].apply(b,e)}})();var m=\"unknown error\",l={15:\"element not selectable\",11:\"element not visible\"};l[31]=m;l[30]=m;l[24]=\"invalid cookie domain\";l[29]=\"invalid element coordinates\";l[12]=\"invalid element state\";l[32]=\"invalid selector\";l[51]=\"invalid selector\";\nl[52]=\"invalid selector\";l[17]=\"javascript error\";l[405]=\"unsupported operation\";l[34]=\"move target out of bounds\";l[27]=\"no such alert\";l[7]=\"no such element\";l[8]=\"no such frame\";l[23]=\"no such window\";l[28]=\"script timeout\";l[33]=\"session not created\";l[10]=\"stale element reference\";l[21]=\"timeout\";l[25]=\"unable to set cookie\";l[26]=\"unexpected alert open\";l[13]=m;l[9]=\"unknown command\";h.prototype.toString=function(){return this.name+\": \"+this.message};var n;a:{var p=d.navigator;if(p){var q=p.userAgent;if(q){n=q;break a}}n=\"\"}function r(a){return-1!=n.indexOf(a)};function t(a,b){for(var e=a.length,c=f(a)?a.split(\"\"):a,g=0;g\u003Ce;g++)g in c&&b.call(void 0,c[g],g,a)};function v(){return r(\"iPhone\")&&!r(\"iPod\")&&!r(\"iPad\")};function w(){return(r(\"Chrome\")||r(\"CriOS\"))&&!r(\"Edge\")};var x=r(\"Opera\"),y=r(\"Trident\")||r(\"MSIE\"),z=r(\"Edge\"),A=r(\"Gecko\")&&!(-1!=n.toLowerCase().indexOf(\"webkit\")&&!r(\"Edge\"))&&!(r(\"Trident\")||r(\"MSIE\"))&&!r(\"Edge\"),aa=-1!=n.toLowerCase().indexOf(\"webkit\")&&!r(\"Edge\");function B(){var a=d.document;return a?a.documentMode:void 0}var C;\na:{var D=\"\",E=function(){var a=n;if(A)return/rv\\:([^\\);]+)(\\)|;)/.exec(a);if(z)return/Edge\\/([\\d\\.]+)/.exec(a);if(y)return/\\b(?:MSIE|rv)[: ]([^\\);]+)(\\)|;)/.exec(a);if(aa)return/WebKit\\/(\\S+)/.exec(a);if(x)return/(?:Version)[ \\/]?(\\S+)/.exec(a)}();E&&(D=E?E[1]:\"\");if(y){var F=B();if(null!=F&&F>parseFloat(D)){C=String(F);break a}}C=D}var G;var H=d.document;G=H&&y?B()||(\"CSS1Compat\"==H.compatMode?parseInt(C,10):5):void 0;var ba=r(\"Firefox\"),ca=v()||r(\"iPod\"),da=r(\"iPad\"),I=r(\"Android\")&&!(w()||r(\"Firefox\")||r(\"Opera\")||r(\"Silk\")),ea=w(),J=r(\"Safari\")&&!(w()||r(\"Coast\")||r(\"Opera\")||r(\"Edge\")||r(\"Silk\")||r(\"Android\"))&&!(v()||r(\"iPad\")||r(\"iPod\"));function K(a){return(a=a.exec(n))?a[1]:\"\"}(function(){if(ba)return K(/Firefox\\/([0-9.]+)/);if(y||z||x)return C;if(ea)return v()||r(\"iPad\")||r(\"iPod\")?K(/CriOS\\/([0-9.]+)/):K(/Chrome\\/([0-9.]+)/);if(J&&!(v()||r(\"iPad\")||r(\"iPod\")))return K(/Version\\/([0-9.]+)/);if(ca||da){var a=/Version\\/(\\S+).*Mobile\\/(\\S+)/.exec(n);if(a)return a[1]+\".\"+a[2]}else if(I)return(a=K(/Android\\s+([0-9.]+)/))?a:K(/Version\\/([0-9.]+)/);return\"\"})();var L,M=function(){if(!A)return!1;var a=d.Components;if(!a)return!1;try{if(!a.classes)return!1}catch(g){return!1}var b=a.classes,a=a.interfaces,e=b[\"@mozilla.org/xpcom/version-comparator;1\"].getService(a.nsIVersionComparator),c=b[\"@mozilla.org/xre/app-info;1\"].getService(a.nsIXULAppInfo).version;L=function(a){e.compare(c,\"\"+a)};return!0}(),N=y&&!(8\u003C=Number(G)),fa=y&&!(9\u003C=Number(G));I&&M&&L(2.3);I&&M&&L(4);J&&M&&L(6);var ga={SCRIPT:1,STYLE:1,HEAD:1,IFRAME:1,OBJECT:1},O={IMG:\" \",BR:\"\\n\"};function P(a,b,e){if(!(a.nodeName in ga))if(3==a.nodeType)e?b.push(String(a.nodeValue).replace(/(\\r\\n|\\r|\\n)/g,\"\")):b.push(a.nodeValue);else if(a.nodeName in O)b.push(O[a.nodeName]);else for(a=a.firstChild;a;)P(a,b,e),a=a.nextSibling};function Q(a,b){b=b.toLowerCase();return\"style\"==b?ha(a.style.cssText):N&&\"value\"==b&&R(a,\"INPUT\")?a.value:fa&&!0===a[b]?String(a.getAttribute(b)):(a=a.getAttributeNode(b))&&a.specified?a.value:null}var ia=/[;]+(?=(?:(?:[^\"]*\"){2})*[^\"]*$)(?=(?:(?:[^']*'){2})*[^']*$)(?=(?:[^()]*\\([^()]*\\))*[^()]*$)/;\nfunction ha(a){var b=[];t(a.split(ia),function(a){var c=a.indexOf(\":\");0\u003Cc&&(a=[a.slice(0,c),a.slice(c+1)],2==a.length&&b.push(a[0].toLowerCase(),\":\",a[1],\";\"))});b=b.join(\"\");return b=\";\"==b.charAt(b.length-1)?b:b+\";\"}function S(a,b){N&&\"value\"==b&&R(a,\"OPTION\")&&null===Q(a,\"value\")?(b=[],P(a,b,!1),a=b.join(\"\")):a=a[b];return a}function R(a,b){b&&\"string\"!==typeof b&&(b=b.toString());return!!a&&1==a.nodeType&&(!b||a.tagName.toUpperCase()==b)}\nfunction T(a){return R(a,\"OPTION\")?!0:R(a,\"INPUT\")?(a=a.type.toLowerCase(),\"checkbox\"==a||\"radio\"==a):!1};var ja={\"class\":\"className\",readonly:\"readOnly\"},U=\"allowfullscreen allowpaymentrequest allowusermedia async autofocus autoplay checked compact complete controls declare default defaultchecked defaultselected defer disabled ended formnovalidate hidden indeterminate iscontenteditable ismap itemscope loop multiple muted nohref nomodule noresize noshade novalidate nowrap open paused playsinline pubdate readonly required reversed scoped seamless seeking selected truespeed typemustmatch willvalidate\".split(\" \");function V(a,b){var e=null,c=b.toLowerCase();if(\"style\"==c)return(e=a.style)&&!f(e)&&(e=e.cssText),e;if((\"selected\"==c||\"checked\"==c)&&T(a)){if(!T(a))throw new h(15,\"Element is not selectable\");b=\"selected\";e=a.type&&a.type.toLowerCase();if(\"checkbox\"==e||\"radio\"==e)b=\"checked\";return S(a,b)?\"true\":null}var g=R(a,\"A\");if(R(a,\"IMG\")&&\"src\"==c||g&&\"href\"==c)return(e=Q(a,c))&&(e=S(a,c)),e;if(\"spellcheck\"==c){e=Q(a,c);if(null!==e){if(\"false\"==e.toLowerCase())return\"false\";if(\"true\"==e.toLowerCase())return\"true\"}return S(a,\nc)+\"\"}g=ja[b]||b;a:if(f(U))c=f(c)&&1==c.length?U.indexOf(c,0):-1;else{for(var u=0;u\u003CU.length;u++)if(u in U&&U[u]===c){c=u;break a}c=-1}if(0\u003C=c)return(e=null!==Q(a,b)||S(a,g))?\"true\":null;try{var k=S(a,g)}catch(ka){}(c=null==k)||(c=typeof k,c=\"object\"==c&&null!=k||\"function\"==c);c?e=Q(a,b):e=k;return null!=e?e.toString():null}var W=[\"_\"],X=d;W[0]in X||!X.execScript||X.execScript(\"var \"+W[0]);\nfor(var Y;W.length&&(Y=W.shift());){var Z;if(Z=!W.length)Z=void 0!==V;Z?X[Y]=V:X[Y]&&X[Y]!==Object.prototype[Y]?X=X[Y]:X=X[Y]={}};; return this._.apply(null,arguments);}.apply({navigator:typeof window!='undefined'?window.navigator:null,document:typeof window!='undefined'?window.document:null}, arguments);}\n).apply(null, arguments);"
+}
+[1687947341.359][INFO]: Waiting for pending navigations...
+[1687947341.359][INFO]: Done waiting for pending navigations. Status: ok
+[1687947341.362][INFO]: Waiting for pending navigations...
+[1687947341.362][INFO]: Done waiting for pending navigations. Status: ok
+[1687947341.362][INFO]: [e553232b0a6c845b83fdc59334866990] RESPONSE ExecuteScript null
+[1687947341.363][INFO]: [e553232b0a6c845b83fdc59334866990] COMMAND GetElementText {
+   "id": "09B2D58C70A7E01A377FF3343B8DFAF1_element_113"
+}
+[1687947341.363][INFO]: Waiting for pending navigations...
+[1687947341.363][INFO]: Done waiting for pending navigations. Status: ok
+[1687947341.793][INFO]: Waiting for pending navigations...
+[1687947341.796][INFO]: Done waiting for pending navigations. Status: ok
+[1687947341.797][INFO]: [e553232b0a6c845b83fdc59334866990] RESPONSE GetElementText "Seen it cheaper? Ask our team for a JB Deal. Live chat with us or call 13 52 44.\nDismiss announcement\nSet my location\nNew\nStores\nWish List\nAccount\nCart\nProducts\nBrands\nDeals & Catalogues\nEOFY Sale\n..."
