@@ -18,7 +18,25 @@ class LinkExtractor:
         if website_name == "rebelsport":
             # Replace whitespaces in the product name to match the URL format.
             product_formatted = self.product.replace(" ", "/")
-            url = f"https://www.{website_name}.com.au/{product_formatted}?search_term={product_end_formatted}"
+            # url = f"https://www.{website_name}.com.au/{product_formatted}?search_term={product_end_formatted}"
+            sort_option = input(""" Recommended for you is default sort
+            1. New In
+            2. Top Rated
+            3. Price: Low to High
+            4. Price: High to Low
+            """)
+            if sort_option == "1":
+                url = f"https://www.{website_name}.com.au/search?q={product_end_formatted}&srule=most-recent&start=0&sz=60"
+            elif sort_option == "2":
+                url = f"https://www.{website_name}.com.au/search?q={product_end_formatted}&srule=top%20rated-top%20sellers&start=0&sz=60"
+            elif sort_option == "3":
+                url = f"https://www.{website_name}.com.au/search?q={product_end_formatted}&srule=price-ascending&start=0&sz=60"
+            elif sort_option == "4":
+                url = f"https://www.{website_name}.com.au/search?q={product_end_formatted}&srule=price-descending&start=0&sz=60"
+            elif sort_option == "":
+                url = f"https://www.{website_name}.com.au/{product_end_formatted}&srule=recommended-for-you&start=0&sz=60"
+                
+            print(url)
         elif website_name == "harveynorman":
             sort_option = int(input(""" Relevance is default sort
             1. Sort by Price: Low to High
