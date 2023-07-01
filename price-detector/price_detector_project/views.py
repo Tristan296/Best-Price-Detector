@@ -62,13 +62,14 @@ class LinkExtractor:
         elif website_name == "binglee":
             url = f"https://www.{website_name}.com.au/search?q={product}"
         elif website_name == "thegoodguys":
-            url = f"https://www.{website_name}.com.au/SearchDisplay?categoryId=&searchTerm={product_formatted}"
+            url = f"https://www.{website_name}.com.au/SearchDisplay?categoryId=&storeId=900&catalogId=30000&langId=-1&sType=SimpleSearch&resultCatEntryType=2&showResultsPage=true&searchSource=Q&pageView=&beginIndex=0&orderBy=0&pageSize=30&searchTerm={product_formatted}"
         elif website_name == "kogan":
             url = f"https://www.{website_name}.com/au/shop/?q={product_formatted}"
         elif website_name == "officeworks":
             url = f"https://www.{website_name}.com.au/shop/{website_name}/search?q={product}&sortBy=bestmatch"
         else:
             print("Please ensure you have spelt the website correctly and chosen from the options.")
+        print(url)
         headers = {
             'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'
         }
@@ -132,14 +133,15 @@ class ProductDetailsExtractor:
     
     def get_product_details_thegoodguys(self):
         products = []
-        count=1
+        count = 1
         product_items = self.soup.select(".product-tile")
         for item in product_items:
-            name = item.select_one("h4.product-tile-name").text.strip()
-            price = item.select_one(".pricepoint-price--promo").text.strip()
+            name = item.select_one("h4").text.strip()
+            price_element = item.select_one(".pricepoint-price--promo")
+            price = price_element.get_text(strip=True) if price_element else None
             product = {"Name": name, "Price": price, "Count": count}
             products.append(product)
-            count+=1
+            count += 1
         return products
     
     def get_product_details_kogan(self):
