@@ -48,9 +48,7 @@ class LinkExtractor:
             3. Name: A to Z
             4. Name: Z to A
             5. Highest Rated
-            """
-                )
-            )
+            """))
             if sort_option == 1:
                 url = f"https://www.{website_name}.com.au/catalogsearch/result/index/?dir=asc&order=price&q={product}#toolbar-top"
             elif sort_option == 2:
@@ -67,6 +65,8 @@ class LinkExtractor:
                 print(
                     "Please ensure you pick the above options from 1-7. e.g. input: '1'"
                 )
+        elif website_name == "ebay":
+            url = f"https://www.{website_name}.com.au/sch/i.html?_from=R40&_trksid=p4432023.m570.l1313&_nkw={product_formatted}&_sacat=0"
         elif website_name == "thegoodguys":
             url = f"https://www.{website_name}.com.au/SearchDisplay?categoryId=&storeId=900&catalogId=30000&langId=-1&sType=SimpleSearch&resultCatEntryType=2&showResultsPage=true&searchSource=Q&pageView=&beginIndex=0&orderBy=0&pageSize=30&searchTerm={product_formatted}"
         elif website_name == "kogan":
@@ -120,7 +120,7 @@ class ProductDetailsExtractor:
 
     def get_product_details_harveynorman(self):
         products = []
-        count = 0
+        count = 1
         product_items = self.soup.select(".product-item")
         for item in product_items:
             name = item.select_one("a.name").text.strip()
@@ -169,7 +169,7 @@ class ProductDetailsExtractor:
     
     def get_product_details_rebelsport(self):
         products = []
-        count = 0
+        count = 1
         product_items = self.soup.select(".product-tile")
         for item in product_items:
             name = item.select_one(".name-link").text.strip()
@@ -180,6 +180,18 @@ class ProductDetailsExtractor:
             count += 1
         return products
 
+    def get_product_details_ebay(self):
+        products = []
+        count = 1
+        product_items = self.soup.select("li.s-item.s-item__pl-on-bottom")
+        for item in product_items:
+            name = item.select_one(".s-item__title").text.strip()
+            price = item.select_one("span.s-item__price").text.strip()
+            price = re.search(r"\d+\.\d+", price).group()
+            product = {"Name": name, "Price": f"${price}", "Count": count}
+            products.append(product)
+            count += 1
+        return products
 
 # Retrieve user input
 product = input("Type a product: ")
@@ -214,4 +226,11 @@ elif "officeworks" in website_name:
     details_extractor = ProductDetailsExtractor(soup)
     print(soup.find_all(""))
     product_details = details_extractor.get_product_details_officeworks()
+    print(product_details)
+    
+elif "ebay" in website_name:
+    print("Scraping Ebay...")
+    details_extractor = ProductDetailsExtractor(soup)
+    print(soup.find_all(""))
+    product_details = details_extractor.get_product_details_ebay()
     print(product_details)
