@@ -33,6 +33,7 @@ def get_links():
     #finding all "a" tags in html
     get_parent_url = parent_soup.find_all('a', href=True)
     add_https = 'https://'
+    #getting the parent URL's
     for extract in get_parent_url:
         parent_href = extract.get('href')
         if add_https in parent_href:
@@ -41,20 +42,20 @@ def get_links():
             counter += 1
         #if link doesn't contain https://
         else:
-            print(getUrl + parent_href)
+            print("fixed-->", getUrl + parent_href)
             fixed_links += 1
             parent_links.append(parent_href)
+
         #accessing sub links now
 
-        # sub_reqs = requests.get(parent_href, headers=headers)
-        # sub_soup = BeautifulSoup(sub_reqs.content, 'html.parser')
-        # get_sub_url = sub_soup.find_all('a', href=True)
-        # sub_links[parent_href] = []
+        sub_reqs = requests.get(parent_href, headers=headers)
+        sub_soup = BeautifulSoup(sub_reqs.content, 'html.parser')
+        get_sub_url = sub_soup.find_all('a', href=True)
+        sub_links[parent_href] = {}
+        print('subs',sub_links)
 
-        # for j in get_sub_url:
-        #     sub_href = j.get('href')
-        #     # if "https://" not in sub_href:
-        #     #     "https://" + sub_href
+        # for childLinks in get_sub_url:
+        #     sub_href = childLinks.get('href')
         #     sub_links[parent_href].append(sub_href)
         #     print("\t"+sub_href)
         #     # print(sub_href)
