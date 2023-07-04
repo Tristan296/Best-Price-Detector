@@ -235,9 +235,11 @@ elif "ebay" in website_name:
     product_details = details_extractor.get_product_details_ebay()
     print(product_details)
 
-soup = read_page(product, website_name)
-# links = get_product_links()
-names = get_product_names(soup, product)
-prices = get_product_prices(soup)
-join_name_and_price(names, prices)
 
+product = input("Type a product: ")
+website_name = input("Type a website: ")
+# Create a new instance of the LinkExtractor class
+link_extractor = LinkExtractor(product, website_name)
+# Retrieve the links and soup
+links = link_extractor.extract_links()
+soup = link_extractor.read_page()
