@@ -89,3 +89,9 @@ elif "jb" in website_name:
     names = get_product_details_jbhifi(soup)
     
 
+soup = read_page(product, website_name)
+# links = get_product_links()
+names = get_product_names(soup, product)
+prices = get_product_prices(soup)
+join_name_and_price(names, prices)
+
