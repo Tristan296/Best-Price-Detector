@@ -234,3 +234,10 @@ elif "ebay" in website_name:
     print(soup.find_all(""))
     product_details = details_extractor.get_product_details_ebay()
     print(product_details)
+
+soup = read_page(product, website_name)
+# links = get_product_links()
+names = get_product_names(soup, product)
+prices = get_product_prices(soup)
+join_name_and_price(names, prices)
+
