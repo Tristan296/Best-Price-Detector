@@ -29,7 +29,7 @@ def get_links():
     #Getting the url
     getUrl = read_link(website_name)
     reqs = requests.get(getUrl, headers=headers)
-    parent_soup = BeautifulSoup(reqs.content, 'html.parser')
+    parent_soup = BeautifulSoup(reqs.content, 'lxml')
     #finding all "a" tags in html
     get_parent_url = parent_soup.find_all('a', href=True)
     add_https = 'https://'
@@ -46,13 +46,22 @@ def get_links():
             fixed_links += 1
             parent_links.append(parent_href)
 
-        #accessing sub links now
 
-        sub_reqs = requests.get(parent_href, headers=headers)
-        sub_soup = BeautifulSoup(sub_reqs.content, 'html.parser')
-        get_sub_url = sub_soup.find_all('a', href=True)
-        sub_links[parent_href] = {}
-        print('subs',sub_links)
+        #accessing sub links now
+        #passing through exceptions
+        # child_reqs = requests.get(parent_href, headers=headers)
+        # if Exception:
+        #     pass
+        # child_soup = BeautifulSoup(child_reqs.content, 'lxml')
+        # get_child_url = child_soup.find_all('a', href=True)
+        # for extract_child in get_child_url:
+        #     child_href = extract_child.get('href')
+        #     print("    ",child_href)
+        # sub_reqs = requests.get(parent_href, headers=headers)
+        # sub_soup = BeautifulSoup(sub_reqs.content, 'html.parser')
+        # get_sub_url = sub_soup.find_all('a', href=True)
+        # sub_links[parent_href] = {}
+        # print('subs',sub_links)
 
         # for childLinks in get_sub_url:
         #     sub_href = childLinks.get('href')
@@ -60,46 +69,43 @@ def get_links():
         #     print("\t"+sub_href)
         #     # print(sub_href)
 
-def get_links_2():
-    global counter
+# def get_links_2():
+#     global counter, fixed_links
+#     #Getting the url
+#     getUrl = f'https://www.rebelsport.com.au/nike'
+#     print(getUrl)
+#     reqs = requests.get(getUrl, headers=headers)
+#     parent_soup = BeautifulSoup(reqs.content, 'lxml')
+#     #finding all "a" tags in html
+#     get_parent_url = parent_soup.find_all('div', class_='product-image')
+#     add_https = 'https://'
+#     #getting the parent URL's
+#     for extract in get_parent_url:
+#         print(extract.find('a')['href'])
+#         counter+=1
+
+
+def get_sub_links():
+    global counter, fixed_links
     #Getting the url
+    # for x in range(1-2):
     getUrl = read_link(website_name)
+    print(getUrl)
     reqs = requests.get(getUrl, headers=headers)
-    parent_soup = BeautifulSoup(reqs.content, 'html.parser')
+    parent_soup = BeautifulSoup(reqs.content, 'lxml')
     #finding all "a" tags in html
-    get_parent_url = parent_soup.find_all('a', href=True)
+    get_parent_url = parent_soup.find_all('div', class_='product-image')
+    add_https = 'https://'
+    #getting the parent URL's
     for extract in get_parent_url:
-        parent_href = extract.get('href')
-        print(parent_href)
-        parent_links.append(parent_href)
-        counter += 1
-        #accessing sub links now
+        print(extract.find('a')['href'])
+        counter+=1
 
-        get_sub_url = parent_href
-        sub_reqs = requests.get(parent_href, headers=headers)
-        sub_soup = BeautifulSoup(sub_reqs.content, 'html.parser')
-
-
-        for sub_extract in get_sub_url:
-            sub_href = sub_extract.get('href')
-            sub_links[parent_href].append(sub_href)
-            print("\t"+sub_href)
-            # print(sub_href)
-       
-# def get_sub_links():
-#     global counter 
-#     sub_link = get_links()
-#     for child in sub_link:
-#         reqs = requests.get(sub_link)
-#         sub_soup = BeautifulSoup(reqs.content, "lxml")
-#         get_child_url = sub_soup.find_all('a', href=True)
-#         for extract in get_child_url:
-#             print(extract.get('href'))
-#     print(child)
 
 read = read_link(website_name)
 extract_links = get_links()
 # extract_sub_links = get_sub_links()
+extract_links_2 = get_sub_links()
 print("Number of links extracted:",counter, "Number of links fixed:" , fixed_links)
 print("number of links in parent:" , len(parent_links))
 # get_txt = get_text_data()

@@ -1,7 +1,7 @@
 import requests
 from bs4 import BeautifulSoup
 counter = 0
-getUrl = requests.get("https://www.thewhiskeyexchange.com/")
+getUrl = requests.get("https://www.rebelsport.com.au/nike")
 parent_soup = BeautifulSoup(getUrl.content, 'html.parser')
 parent_a_tag = parent_soup.find_all("a", href=True)
 parent_links = []
