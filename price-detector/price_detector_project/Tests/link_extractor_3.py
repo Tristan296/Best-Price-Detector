@@ -31,7 +31,7 @@ def get_links():
     reqs = requests.get(getUrl, headers=headers)
     parent_soup = BeautifulSoup(reqs.content, 'lxml')
     #finding all "a" tags in html
-    get_parent_url = parent_soup.find_all('a', href=True)
+    get_parent_url = set(parent_soup.find_all('a', href=True))
     add_https = 'https://'
     #getting the parent URL's
     for extract in get_parent_url:
@@ -49,19 +49,17 @@ def get_links():
 
         #accessing sub links now
         #passing through exceptions
-        # child_reqs = requests.get(parent_href, headers=headers)
-        # if Exception:
-        #     pass
-        # child_soup = BeautifulSoup(child_reqs.content, 'lxml')
-        # get_child_url = child_soup.find_all('a', href=True)
-        # for extract_child in get_child_url:
-        #     child_href = extract_child.get('href')
-        #     print("    ",child_href)
-        # sub_reqs = requests.get(parent_href, headers=headers)
-        # sub_soup = BeautifulSoup(sub_reqs.content, 'html.parser')
-        # get_sub_url = sub_soup.find_all('a', href=True)
-        # sub_links[parent_href] = {}
-        # print('subs',sub_links)
+        child_reqs = requests.get(parent_href, headers=headers)
+        child_soup = BeautifulSoup(child_reqs.content, 'lxml')
+        get_child_url = child_soup.find_all('a', href=True)
+        for extract_child in get_child_url:
+            child_href = extract_child.get('href')
+            print("    ",child_href)
+        sub_reqs = requests.get(parent_href, headers=headers)
+        sub_soup = BeautifulSoup(sub_reqs.content, 'html.parser')
+        get_sub_url = sub_soup.find_all('a', href=True)
+        sub_links[parent_href] = {}
+        print('subs',sub_links)
 
         # for childLinks in get_sub_url:
         #     sub_href = childLinks.get('href')
