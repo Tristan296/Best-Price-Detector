@@ -1,3 +1,4 @@
+#WORKING FILE - USE THIS FOR UPDATES!!!!!!
 import requests
 from bs4 import BeautifulSoup
 counter = 0
@@ -16,13 +17,28 @@ for link in parent_a_tag:
     if parent_href not in parent_links:
         parent_links.append(parent_href)
         print(parent_href)
-        counter += 1
+        # counter += 1
     #This is used to get the stats of how many duplicate links we have detected
     if(parent_href in parent_links):
         duplicate_counter += 1;
     #print(parent_href)
     
     #accessing parents child --> sub links
+    sub_request = requests.get(parent_href)
+    sub_soup = BeautifulSoup(sub_request.content, 'html.parser')
+    sub_atags = set(sub_soup.find_all("a", href=True))
+    sub_links[parent_href] = []
+    counter += 1
+    for sub_atag in sub_atags:
+        sub_href = sub_atag.get('href')
+        if '/p/' in sub_href:
+
+            sub_links[parent_href].append(sub_href)
+            # if(parent_a_tag)
+            counter+=1;
+            print("\t"+sub_href)
+    print("Links extracted: ",counter)
+    print("Duplicated links: ", duplicate_counter)
     # while True:
     #     try:
     #         sub_request = requests.get(parent_href)
@@ -32,10 +48,12 @@ for link in parent_a_tag:
     #         counter += 1
     #         for sub_atag in sub_atags:
     #             sub_href = sub_atag.get('href')
-    #             sub_links[parent_href].append(sub_href)
-    #             # if(parent_a_tag)
-    #             counter+=1;
-    #             print("\t"+sub_href)
+    #             if '/p/' in sub_href:
+
+    #                 sub_links[parent_href].append(sub_href)
+    #                 # if(parent_a_tag)
+    #                 counter+=1;
+    #                 print("\t"+sub_href)
     #         print("Links extracted: ",counter)
     #         print("Duplicated links: ", duplicate_counter)
 
