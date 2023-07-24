@@ -12,13 +12,14 @@ def extract_product_info(html, product_name):
     # Use re.compile to create a case-insensitive regex pattern for the product name
     pattern = re.compile(re.escape(product_name), re.IGNORECASE)
     matched_elements = soup.find_all(string=pattern)
-
+    
     for element in matched_elements:
         # Get the parent element that contains the product name
         parent_element = element.find_parent()
         # Append the product name and its parent element to the lists
         product_names.append(element.strip())
         product_elements.append(str(parent_element))
+       
         
     return product_names, product_elements
 
@@ -33,14 +34,17 @@ def get_product_prices(html):
     price_pattern = r'\$\d+\.\d+|\£\d+|\d+\.\d+\s(?:USD|EUR)'
     
     prices = []
+    count = 1
     for element in span_elements:
         # Search for the price pattern in the text of the span element
         price_match = re.search(price_pattern, str(element.text))
         if price_match and element is not None:
-            prices.append(price_match.group())
+            product_details = {price_match.group(), count}
+            prices.append(product_details)
+            count+=1
     
     return prices
-            
+
 def extract_images(html):
     soup = BeautifulSoup(html, 'html.parser')
     image_sources = []
@@ -55,7 +59,7 @@ def extract_images(html):
             image_sources.append(src)
             
     return image_sources
-    
+
 product_name = input("Enter product name: ")
 url = input('Enter website url: ')
 
@@ -72,9 +76,11 @@ if response.status_code == 200:
     # Output the product information
     for name, element in zip(product_names, product_elements):
         print(f"Product Name: {name}\n")
-    
-    x = get_product_prices(html)
-    print(x)
+        
+    price = get_product_prices(html)
+    print(price)
+    urls = extract_images(html)
+    print(urls)
     
 else:
     print(f"Failed to fetch the webpage. Status code: {response.status_code}")
