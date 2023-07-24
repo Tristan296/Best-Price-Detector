@@ -5,7 +5,7 @@ from bs4 import BeautifulSoup
 
 def extract_product_info(html, product_name):
     soup = BeautifulSoup(html, 'lxml')
-    
+    count = 0
     product_names = []
     product_elements = []
     product_prices = []
@@ -17,11 +17,14 @@ def extract_product_info(html, product_name):
         # Get the parent element that contains the product name
         parent_element = element.find_parent()
         # Append the product name and its parent element to the lists
-        product_names.append(element.strip())
-        product_elements.append(str(parent_element))
-       
         
-    return product_names, product_elements
+        product_link = parent_element.get("href")
+        if product_link is not None:
+            product_names.append(element.strip())
+            product_elements.append(product_link)
+            count+=1
+        
+    return product_names, product_elements, count
 
 parent_links = []
 
@@ -60,25 +63,43 @@ def extract_images(html):
             
     return image_sources
 
+def get_product_price_fromLink(product_elements):
+    prices = []
+    for element in product_elements:
+        print("Processing URL:", element)
+        getUrl = requests.get(element)
+        parent_soup = BeautifulSoup(getUrl.content, 'html.parser')
+        price = parent_soup.find_all('span')
+        if price is not None:
+            prices.append(price)
+    return prices
+
+
 product_name = input("Enter product name: ")
-url = input('Enter website url: ')
+name = input('Enter website: ')
+url_ = f"https://www.{name}.com.au/search?q={product_name}&lang=en_AU"
 
 # Use requests to fetch the HTML content of the webpage
-response = requests.get(url)
+response = requests.get(url_)
 
 if response.status_code == 200:
     count = 0
     html = response.text
     
     # Extract product information from the HTML
-    product_names, product_elements = extract_product_info(html, product_name)
+    product_names, product_elements, count = extract_product_info(html, product_name)
 
+    # Extract product price from product links
+  #   product_price = get_product_price_fromLink(str(product_elements))
     # Output the product information
     for name, element in zip(product_names, product_elements):
         print(f"Product Name: {name}\n")
+       #  print(f"Product Price: {price}")
+        print(f"Product link: {element}\n")
         
-    price = get_product_prices(html)
-    print(price)
+    print(f"Total number of products found:  {count}")
+   # price = get_product_prices(html)
+   # print(price)
     urls = extract_images(html)
     print(urls)
     
