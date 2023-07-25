@@ -3,6 +3,21 @@ import time
 import requests
 from bs4 import BeautifulSoup
 
+"""
+    Extracts information about a product from an HTML document using the re.compile function (allows case-insensitive matching)
+    Stores the parent html element of the product name in product_elements array.
+    Stores the product names into a product_names array.
+
+    Parameters:
+        html (str): The HTML content to be parsed and searched.
+        product_name (str): The name of the product to search for.
+
+    Returns:
+        tuple: A tuple containing three elements:
+            - product_names (list): A list of product names that match the given product_name.
+            - product_elements (list): A list of corresponding product elements (links) found in the HTML.
+            - count (int): The number of products found that match the given product_name.
+"""
 def extract_product_info(html, product_name):
     soup = BeautifulSoup(html, 'lxml')
     count = 0
@@ -17,7 +32,6 @@ def extract_product_info(html, product_name):
         # Get the parent element that contains the product name
         parent_element = element.find_parent()
         # Append the product name and its parent element to the lists
-        
         product_link = parent_element.get("href")
         if product_link is not None:
             product_names.append(element.strip())
@@ -27,6 +41,24 @@ def extract_product_info(html, product_name):
     return product_names, product_elements, count
 
 parent_links = []
+
+
+"""
+    Extracts all the prices in the website. This method is hardcoded to work for a large majority of websites.
+    This is due to a smaller number of websites utilising a different html element for prices.
+    
+    E.g:
+        Rebel Sport, Aje World, Harveynorman, JBHIFI, Amazon, ASOS, Target, BIGW: <span class="$...">
+        Officeworks: <div data="$...">
+        Bunnings: <p data-locator="$..."> 
+        
+    Parameters:
+        html (str): The HTML content to be parsed and searched.
+
+    Returns:
+        Array:
+            - prices (list): A list of product prices found in the html
+"""
 
 def get_product_prices(html):
     parent_soup = BeautifulSoup(html, 'html.parser')
@@ -48,6 +80,23 @@ def get_product_prices(html):
     
     return prices
 
+"""
+    Extracts all the image urls in the website. 
+    Uses Regex search() function to ensure the image url is an actual url, i.e. one hosted online
+    
+    E.g - Accepted url:
+    url = https://www.rebelsport.com.au/on/demandware.static/-/Library-Sites-rebel-shared-library/default...
+    
+    E.g. - Url Ignored:
+    url = 'data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=='
+    
+    Parameters:
+        html (str): The HTML content to be parsed and searched.
+
+    Returns:
+        Array:
+            - image_sources: A list of product image urls found in the html
+"""
 def extract_images(html):
     soup = BeautifulSoup(html, 'html.parser')
     image_sources = []
