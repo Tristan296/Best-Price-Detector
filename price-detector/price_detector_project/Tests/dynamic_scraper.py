@@ -1,5 +1,7 @@
+import asyncio
 import re
 import time
+import aiohttp
 import requests
 from bs4 import BeautifulSoup
 
@@ -18,8 +20,9 @@ from bs4 import BeautifulSoup
             - product_elements (list): A list of corresponding product elements (links) found in the HTML.
             - count (int): The number of products found that match the given product_name.
 """
-def extract_product_info(html, product_name):
-    soup = BeautifulSoup(html, 'lxml')
+
+
+async def extract_product_info(soup, product_name):
     count = 0
     product_names = []
     product_elements = []
@@ -27,7 +30,7 @@ def extract_product_info(html, product_name):
     # Use re.compile to create a case-insensitive regex pattern for the product name
     pattern = re.compile(re.escape(product_name), re.IGNORECASE)
     matched_elements = soup.find_all(string=pattern)
-    
+
     for element in matched_elements:
         # Get the parent element that contains the product name
         parent_element = element.find_parent()
@@ -36,11 +39,9 @@ def extract_product_info(html, product_name):
         if product_link is not None:
             product_names.append(element.strip())
             product_elements.append(product_link)
-            count+=1
+            count += 1
         
     return product_names, product_elements, count
-
-parent_links = []
 
 
 """
@@ -60,14 +61,13 @@ parent_links = []
             - prices (list): A list of product prices found in the html
 """
 
-def get_product_prices(html):
-    parent_soup = BeautifulSoup(html, 'html.parser')
+async def get_product_prices(html, soup):
     # Finding all "span" tags in html
-    span_elements = parent_soup.find_all('span')
-    
+    span_elements = soup.find_all("span")
+
     # Regular expression to match price patterns (e.g., $10.99, £20, 15.50 EUR, etc.)
-    price_pattern = r'\$\d+\.\d+|\£\d+|\d+\.\d+\s(?:USD|EUR)'
-    
+    price_pattern = r"\$\d+\.\d+|\£\d+|\d+\.\d+\s(?:USD|EUR)"
+
     prices = []
     count = 1
     for element in span_elements:
@@ -76,9 +76,31 @@ def get_product_prices(html):
         if price_match and element is not None:
             product_details = {price_match.group(), count}
             prices.append(product_details)
-            count+=1
-    
+            count += 1
+
     return prices
+
+
+async def get_url_formatting(product_name, website_name):
+    website_urls = {
+        "rebelsport": f"https://www.rebelsport.com.au/search?q={product_name}",
+        "harveynorman": f"https://www.harveynorman.com.au/search?q={product_name}",
+        "ebay": f"https://www.ebay.com.au/sch/i.html?_from=R40&_trksid=p4432023.m570.l1313&_nkw={product_name}&_sacat=0",
+        "thegoodguys": f"https://www.thegoodguys.com.au/SearchDisplay?categoryId=&storeId=900&catalogId=30000&langId=-1&sType=SimpleSearch&resultCatEntryType=2&showResultsPage=true&searchSource=Q&pageView=&beginIndex=0&orderBy=0&pageSize=30&searchTerm={product_name}",
+        "kogan": f"https://www.kogan.com/au/shop/?q={product_name}",
+        "officeworks": f"https://www.officeworks.com.au/shop/officeworks/search?q={product_name}&view=grid&page=1&sortBy=bestmatch",
+        "amazon": f"https://www.amazon.com.au/s?k={product_name}",
+        "jbhifi": f"https://www.jbhifi.com.au/search?page=1&query={product_name}&saleItems=false&toggle%5BonPromotion%5D=false",
+        "ajeworld": f"https://ajeworld.com.au/collections/shop?q={product_name}", 
+        "bestbuy" : f"https://www.bestbuy.com/site/searchpage.jsp?st={product_name}"
+    }
+    if website_name not in website_urls:
+        print("Unsupported website name:", website_name)
+        return None
+        
+    
+    url_formatted = website_urls[website_name]
+    return url_formatted
 
 """
     Extracts all the image urls in the website. 
@@ -97,60 +119,78 @@ def get_product_prices(html):
         Array:
             - image_sources: A list of product image urls found in the html
 """
-def extract_images(html):
-    soup = BeautifulSoup(html, 'html.parser')
+
+
+async def extract_images(soup):
     image_sources = []
     # Find all image elements in the HTML
-    images = soup.find_all('img')
-    
+    images = soup.find_all("img")
+
     for img in images:
         # Extract the 'src' attribute of each image element
-        src = img.get('src')
+        src = img.get("src")
         # Ensure that the src is an online link.
-        if src and re.search(r'^(http|https)://', src):
+        if src and re.search(r"^(http|https)://", src):
             image_sources.append(src)
-            
+
     return image_sources
 
-def get_product_price_fromLink(product_elements):
+
+async def get_product_price_fromLink(product_elements, soup):
     prices = []
     for element in product_elements:
         print("Processing URL:", element)
         getUrl = requests.get(element)
-        parent_soup = BeautifulSoup(getUrl.content, 'html.parser')
-        price = parent_soup.find_all('span')
+        price = soup.find_all("span")
         if price is not None:
             prices.append(price)
     return prices
 
 
-product_name = input("Enter product name: ")
-name = input('Enter website: ')
-url_ = f"https://www.{name}.com.au/search?q={product_name}&lang=en_AU"
+async def fetch_html(url_):
+    async with aiohttp.ClientSession() as session:
+        async with session.get(url_) as response:
+            if response.status == 200:
+                return await response.text()
+            else:
+                return None
 
-# Use requests to fetch the HTML content of the webpage
-response = requests.get(url_)
 
-if response.status_code == 200:
-    count = 0
-    html = response.text
-    
-    # Extract product information from the HTML
-    product_names, product_elements, count = extract_product_info(html, product_name)
+async def get_soup(url_):
+    html = await fetch_html(url_)
 
-    # Extract product price from product links
-  #   product_price = get_product_price_fromLink(str(product_elements))
-    # Output the product information
-    for name, element in zip(product_names, product_elements):
-        print(f"Product Name: {name}\n")
-       #  print(f"Product Price: {price}")
-        print(f"Product link: {element}\n")
-        
-    print(f"Total number of products found:  {count}")
-   # price = get_product_prices(html)
-   # print(price)
-    urls = extract_images(html)
-    print(urls)
-    
-else:
-    print(f"Failed to fetch the webpage. Status code: {response.status_code}")
+    if html:
+        return BeautifulSoup(html, "lxml")
+    else:
+        print(f"Failed to fetch the webpage: {url_}")
+        return None
+
+
+async def main():
+    product_name = input("Enter product name: ")
+    website_name = input("Enter website: ")
+    formatted_url = await get_url_formatting(product_name, website_name)
+    print(f"Now searching for {product_name} in url {formatted_url}")
+    soup = await get_soup(formatted_url)
+
+    if soup:
+        # Extract product information from the HTML
+        product_names, product_elements, count = await extract_product_info(
+            soup, product_name
+        )
+
+        # Extract product price from product links
+        # product_price = get_product_price_fromLink(str(product_elements))
+        # Output the product information
+        for name, element in zip(product_names, product_elements):
+            print(f"Product Name: {name}\n")
+            print(f"Product link: {element}\n")
+
+        print(f"Total number of products found: {count}")
+
+        urls = await extract_images(soup)
+        print(urls)
+
+
+if __name__ == "__main__":
+    asyncio.run(main())
