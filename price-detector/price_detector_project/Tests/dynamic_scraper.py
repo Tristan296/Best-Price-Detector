@@ -40,7 +40,7 @@ async def extract_product_info(soup, product_name):
             product_names.append(element.strip())
             product_elements.append(product_link)
             count += 1
-
+        
     return product_names, product_elements, count
 
 
@@ -83,7 +83,7 @@ async def get_product_prices(html, soup):
 
 async def get_url_formatting(product_name, website_name):
     website_urls = {
-        "rebelsport": f"https://www.rebelsport.com.au/search?q={product_name}&lang=en_AU",
+        "rebelsport": f"https://www.rebelsport.com.au/search?q={product_name}",
         "harveynorman": f"https://www.harveynorman.com.au/search?q={product_name}",
         "ebay": f"https://www.ebay.com.au/sch/i.html?_from=R40&_trksid=p4432023.m570.l1313&_nkw={product_name}&_sacat=0",
         "thegoodguys": f"https://www.thegoodguys.com.au/SearchDisplay?categoryId=&storeId=900&catalogId=30000&langId=-1&sType=SimpleSearch&resultCatEntryType=2&showResultsPage=true&searchSource=Q&pageView=&beginIndex=0&orderBy=0&pageSize=30&searchTerm={product_name}",
@@ -91,7 +91,8 @@ async def get_url_formatting(product_name, website_name):
         "officeworks": f"https://www.officeworks.com.au/shop/officeworks/search?q={product_name}&view=grid&page=1&sortBy=bestmatch",
         "amazon": f"https://www.amazon.com.au/s?k={product_name}",
         "jbhifi": f"https://www.jbhifi.com.au/search?page=1&query={product_name}&saleItems=false&toggle%5BonPromotion%5D=false",
-        "ajeworld": f"https://ajeworld.com.au/collections/shop?q={product_name}"
+        "ajeworld": f"https://ajeworld.com.au/collections/shop?q={product_name}", 
+        "bestbuy" : f"https://www.bestbuy.com/site/searchpage.jsp?st={product_name}"
     }
     if website_name not in website_urls:
         print("Unsupported website name:", website_name)
