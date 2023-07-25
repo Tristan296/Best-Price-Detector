@@ -61,7 +61,6 @@ async def extract_product_info(soup, product_name):
             - prices (list): A list of product prices found in the html
 """
 
-
 async def get_product_prices(html, soup):
     # Finding all "span" tags in html
     span_elements = soup.find_all("span")
@@ -81,6 +80,26 @@ async def get_product_prices(html, soup):
 
     return prices
 
+
+async def get_url_formatting(product_name, website_name):
+    website_urls = {
+        "rebelsport": f"https://www.rebelsport.com.au/search?q={product_name}&lang=en_AU",
+        "harveynorman": f"https://www.harveynorman.com.au/search?q={product_name}",
+        "ebay": f"https://www.ebay.com.au/sch/i.html?_from=R40&_trksid=p4432023.m570.l1313&_nkw={product_name}&_sacat=0",
+        "thegoodguys": f"https://www.thegoodguys.com.au/SearchDisplay?categoryId=&storeId=900&catalogId=30000&langId=-1&sType=SimpleSearch&resultCatEntryType=2&showResultsPage=true&searchSource=Q&pageView=&beginIndex=0&orderBy=0&pageSize=30&searchTerm={product_name}",
+        "kogan": f"https://www.kogan.com/au/shop/?q={product_name}",
+        "officeworks": f"https://www.officeworks.com.au/shop/officeworks/search?q={product_name}&view=grid&page=1&sortBy=bestmatch",
+        "amazon": f"https://www.amazon.com.au/s?k={product_name}",
+        "jbhifi": f"https://www.jbhifi.com.au/search?page=1&query={product_name}&saleItems=false&toggle%5BonPromotion%5D=false",
+        "ajeworld": f"https://ajeworld.com.au/collections/shop?q={product_name}"
+    }
+    if website_name not in website_urls:
+        print("Unsupported website name:", website_name)
+        return None
+        
+    
+    url_formatted = website_urls[website_name]
+    return url_formatted
 
 """
     Extracts all the image urls in the website. 
@@ -148,10 +167,10 @@ async def get_soup(url_):
 
 async def main():
     product_name = input("Enter product name: ")
-    name = input("Enter website: ")
-    url_ = f"https://www.{name}.com.au/search?q={product_name}&lang=en_AU"
-
-    soup = await get_soup(url_)
+    website_name = input("Enter website: ")
+    formatted_url = await get_url_formatting(product_name, website_name)
+    print(f"Now searching for {product_name} in url {formatted_url}")
+    soup = await get_soup(formatted_url)
 
     if soup:
         # Extract product information from the HTML
