@@ -7,8 +7,3 @@
 | JBHIFI |    ✅      |
 | The Good Guys |  ✅  |
 | Nike | ✅ |
-| Officeworks   | ❌      |
-| Kogan |     ❌    |
-| Ebay  |   ❌        |
-| Amazon   | ❌      |
-| Best Buy   | ❌      |
