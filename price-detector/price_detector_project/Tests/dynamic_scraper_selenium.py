@@ -1,6 +1,7 @@
 import asyncio
 import re
 import time
+import aiohttp
 from bs4 import BeautifulSoup
 import requests
 from selenium import webdriver
@@ -8,11 +9,6 @@ from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-
-"""
-    Your other functions and imports here (e.g., extract_product_info, get_url_formatting, etc.)
-
-"""
 
 
 async def extract_product_info(soup, product_name):
@@ -27,14 +23,51 @@ async def extract_product_info(soup, product_name):
     for element in matched_elements:
         # Get the parent element that contains the product name
         parent_element = element.find_parent()
-        # Append the product name and its parent element to the lists
         product_link = parent_element.get("href")
-        if product_link is not None:
-            product_names.append(element.strip())
-            product_elements.append(product_link)
-            count += 1
         
-    return product_names, product_elements, count
+        # Check each product link and get the price
+        if product_link is not None and re.search(r"^(http|https)://", product_link):
+            print(f"Searching {product_link}...\n")
+            sub_product_soup = await get_soup(product_link)
+            
+            # Regular expression to match price patterns (e.g., $10.99, £20, 15.50 EUR, etc.)
+            price_pattern = r"\$\d+\.\d+|\£\d+|\d+\.\d+\s(?:USD|EUR)"
+            
+            # Search for the price pattern in the entire HTML
+            prices = re.findall(price_pattern, sub_product_soup.get_text())
+            
+            if prices:
+                # Take the first price found
+                product_price = prices[0]
+            else:
+                product_price = "Price not found"
+            
+            product_names.append(element.strip())
+            product_elements.append(product_link.strip())
+            product_prices.append(product_price)
+            
+            count += 1
+    
+    return product_names, product_elements, product_prices, count
+
+
+async def get_soup(url_):
+    html = await fetch_html(url_)
+
+    if html:
+        return BeautifulSoup(html, "lxml")
+    else:
+        print(f"Failed to fetch the webpage: {url_}")
+        return None
+
+async def fetch_html(url_):
+    async with aiohttp.ClientSession() as session:
+        async with session.get(url_) as response:
+            if response.status == 200:
+                return await response.text()
+            else:
+                return None
+
 
 
 async def get_soup_with_selenium(url_):
@@ -87,7 +120,7 @@ async def main():
 
     # Use BeautifulSoup to parse the HTML
     soup = BeautifulSoup(requests.get(formatted_url).content, "html.parser")
-    product_names, product_elements, count = await extract_product_info(soup, product_name)
+    product_names, product_elements, product_prices, count = await extract_product_info(soup, product_name)
 
     # Output the product information from regular HTML content
     print("Product names from regular HTML content:")
@@ -98,13 +131,14 @@ async def main():
 
     # Use Selenium to parse the JavaScript-rendered content
     soup_with_js = await get_soup_with_selenium(formatted_url)
-    product_names_js, product_elements_js, count_js = await extract_product_info(soup_with_js, product_name)
+    product_names, product_elements, product_prices, count = await extract_product_info(soup_with_js, product_name)
 
     # Output the product information from JavaScript-rendered content
     print("Product names from JavaScript-rendered content:")
-    for name, element in zip(product_names_js, product_elements_js):
+    for name, element, price in zip(product_names, product_elements, product_prices):
         print(f"Product Name: {name}")
         print(f"Product link: {element}")
+        print(f"Product Price: {price}")
         print()
 
     # ... (other code remains the same)
