@@ -62,22 +62,22 @@ def get_links():
 
         #accessing sub links now
         #passing through exceptions
-        sub_request = requests.get(parent_href)
-        sub_soup = BeautifulSoup(sub_request.content, 'html.parser')
-        sub_atags = set(sub_soup.find_all("a", href=True))
-        sub_links[parent_href] = []
-        counter += 1
-        for sub_atag in sub_atags:
-            sub_href = sub_atag.get('href')
-            if '/p/' in sub_href:
-                sub_links[parent_href].append(sub_href)
-                # if(parent_a_tag)
-                counter+=1;
-                print("\t"+sub_href)
-            if add_https not in sub_href:
-                print("fixed-->", getUrl + sub_href)
-                fixed_links += 1
-                sub_links[parent_href].append(sub_href)                
+        # sub_request = requests.get(parent_href)
+        # sub_soup = BeautifulSoup(sub_request.content, 'html.parser')
+        # sub_atags = set(sub_soup.find_all("a", href=True))
+        # sub_links[parent_href] = []
+        # counter += 1
+        # for sub_atag in sub_atags:
+        #     sub_href = sub_atag.get('href')
+        #     if '/p/' in sub_href:
+        #         sub_links[parent_href].append(sub_href)
+        #         # if(parent_a_tag)
+        #         counter+=1;
+        #         print("\t"+sub_href)
+        #     if add_https not in sub_href:
+        #         print("fixed-->", getUrl + sub_href)
+        #         fixed_links += 1
+        #         sub_links[parent_href].append(sub_href)                
         print("Links extracted: ",counter)
         #print("Duplicated links: ", duplicate_counter)
 
