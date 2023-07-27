@@ -9,7 +9,7 @@ import requests
 from bs4 import BeautifulSoup
 counter = 0
 duplicate_counter = 0;
-getUrl = requests.get("https://www.rebelsport.com.au")
+getUrl = requests.get("https://www.jbhifi.com.au")
 parent_soup = BeautifulSoup(getUrl.content, 'html.parser')
 #Set() removes duplicates
 parent_a_tag = set(parent_soup.find_all("a", href=True))
