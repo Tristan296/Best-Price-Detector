@@ -29,6 +29,11 @@ sub_links = {}
 #     return reqs.text
 
 
+"""
+    YOU CAN DELETE THE WEBSITE NAME AND PRODUCT NAME AS YOUR CODE ALREADY HAS IT. CONNECT YOUR USER INPUT 
+    FOR THE WEBSITE AND PRODUCT NAME INTO MY "READ_LINK(PRODUCT, WEBSITE_NAME) FUNCTION!!
+"""
+
 #Reads the url
 def read_link(product, website_name):
     website_name = website_name.replace(" ", "").lower()
@@ -37,6 +42,11 @@ def read_link(product, website_name):
     print("Extracting: " + base_url)
     return base_url
 
+"""
+    GET LINKS AND SUB LINKS WORK WELL. I WILL CREATE ANOTHER FUNCTION LIKE "ADD_HTTPS_REBEL" TO WORK WITH 
+    OTHER WEBSITES OR YOU CAN USE YOUR CODE TO LET THE SOFTWARE PASS THORUGH EXCEPTIONS WERE THE CODE HAS
+    MISSING SCHEME APPLIED DID YOU MEAN "//HTTPS: ..... ERROR
+"""
 
 #Extracts all links of the given website
 def get_links():
