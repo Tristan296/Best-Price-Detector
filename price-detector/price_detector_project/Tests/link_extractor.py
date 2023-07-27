@@ -9,6 +9,8 @@
     USE THIS FILE AS THE CORE PROGRAM OF THIS PROJECT!!
 """
 
+import re
+from urllib.parse import urljoin
 import requests
 from bs4 import BeautifulSoup
 from urllib.request import Request
@@ -47,60 +49,54 @@ def read_link(product, website_name):
     OTHER WEBSITES OR YOU CAN USE YOUR CODE TO LET THE SOFTWARE PASS THORUGH EXCEPTIONS WERE THE CODE HAS
     MISSING SCHEME APPLIED DID YOU MEAN "//HTTPS: ..... ERROR
 """
-
-#Extracts all links of the given website
 def get_links():
     global counter, fixed_links
-    #Getting the url
+    # Getting the url
     getUrl = read_link(product, website_name)
     reqs = requests.get(getUrl, headers=headers)
     parent_soup = BeautifulSoup(reqs.content, 'lxml')
-    #finding all "a" tags in html
+    # finding all "a" tags in html
     get_parent_url = set(parent_soup.find_all('a', href=True))
     add_https_rebel = 'https://www.rebelsport.com.au/'
     add_https_aje = 'https://'
-    #getting the parent URL's
+    # getting the parent URL's
     for link in get_parent_url:
         parent_href = link.get('href')
         # Checking for duplicates again as set() doesn't remove all duplicates so we would need to search our "parent_links"
         # array and compare it if the next link is doesn't exist in our current array     
-        if parent_href not in parent_links and add_https_rebel in parent_href:
+        if parent_href not in parent_links and add_https_rebel in parent_href and re.search(r"^(http|https)://www.", parent_href):
             parent_links.append(parent_href)
             print(parent_href)
-            counter+=1 
-        else:
-            print("fixed-->", getUrl + parent_href)
-            fixed_links += 1
-            parent_links.append(parent_href)
+            counter += 1
+        # else:
+        #     print("fixed-->", urljoin(getUrl, parent_href))
+        #     fixed_links += 1
+        #     parent_links.append(parent_href)
 
-
-        #accessing sub links now
-        #passing through exceptions
+        # accessing sub links now
+        # passing through exceptions
         sub_request = requests.get(parent_href)
         sub_soup = BeautifulSoup(sub_request.content, 'html.parser')
         sub_atags = set(sub_soup.find_all("a", href=True))
         sub_links[parent_href] = []
         counter += 1
-        #Avoiding exceptions like "missing schema"
+        # Avoiding exceptions like "missing schema"
         try:
             for sub_atag in sub_atags:
                 sub_href = sub_atag.get('href')
-                if '/p/' in sub_href and product in sub_href :
+                if '/p/' in sub_href and product in sub_href and re.search(r"^(http|https)://www.", sub_href):
                     sub_links[parent_href].append(sub_href)
                     # if(parent_a_tag)
-                    counter+=1;
-                    print("\t"+sub_href)
+                    counter += 1
+                    print("\t" + sub_href)
                 if add_https_rebel not in sub_href and product in sub_href:
-                    print("fixed-->", getUrl + sub_href)
+                    print("fixed-->", urljoin(getUrl, sub_href))
                     fixed_links += 1
-                    sub_links[parent_href].append(sub_href) 
+                    sub_links[parent_href].append(sub_href)
         except Exception:
-            pass               
-        print("Links extracted: ",counter)
-        #print("Duplicated links: ", duplicate_counter)
+            pass
 
-
-
+        print("Links extracted: ", counter)
 read = read_link(product, website_name)
 extract_links = get_links()
 # extract_sub_links = get_sub_links()
