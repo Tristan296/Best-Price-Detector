@@ -1,26 +1,19 @@
+
 import asyncio
 import re
 import time
 import aiohttp
-import timeit
 import requests
 from bs4 import BeautifulSoup, SoupStrainer
 
-
-async def time_tester():
-    # Get user input for product name and website
-    product_name = input("Enter product name: ")
-    website_name = input("Enter website: ")
-    formatted_url = await get_url_formatting(product_name, website_name)
-    print(f"Now searching for {product_name} in url {formatted_url}")
-
-    # Measure the execution time using timeit
-    execution_time = timeit.timeit(
-        lambda: asyncio.run(main()),
-        number=1
-    )
-
-    print(f"Total time taken: {execution_time:.2f} seconds")
+async def fetch_price(session, product_link):
+    try:
+        async with session.get(product_link) as response:
+            html_content = await response.text()
+            return html_content
+    except Exception as e:
+        print(f"Error fetching {product_link}: {e}")
+        return None
 
 
 """
@@ -40,20 +33,9 @@ async def time_tester():
 """
 
 
-async def fetch_price(session, product_link):
-    try:
-        async with session.get(product_link) as response:
-            html_content = await response.text()
-            return html_content
-    except Exception as e:
-        print(f"Error fetching {product_link}: {e}")
-        return None
-
 async def extract_product_info(soup, product_name):
     count = 0
-    product_names = []
-    product_elements = []
-    product_prices = []
+    product_data = {}
     pattern = re.compile(re.escape(product_name), re.IGNORECASE)
     matched_elements = soup.find_all(string=pattern)
 
@@ -63,7 +45,7 @@ async def extract_product_info(soup, product_name):
             parent_element = element.find_parent()
             product_link = parent_element.get("href")
 
-            if product_link is not None and re.search(r"^(http|https)://", product_link):
+            if product_link is not None and product_link.startswith(('http://', 'https://')):
                 tasks.append(fetch_price(session, product_link))
 
         html_contents = await asyncio.gather(*tasks)
@@ -74,7 +56,7 @@ async def extract_product_info(soup, product_name):
         parent_element = element.find_parent()
         product_link = parent_element.get("href")
 
-        if product_link is not None and re.search(r"^(http|https)://", product_link):
+        if product_link is not None and product_link.startswith(('http://', 'https://')):
             if i < len(html_contents):  # Added this check to avoid the IndexError
                 sub_product_soup = BeautifulSoup(html_contents[i], "lxml", parse_only=SoupStrainer("span"))
                 price_pattern = r"\$\d+\.\d+|\£\d+|\d+\.\d+\s(?:USD|EUR)"
@@ -85,50 +67,15 @@ async def extract_product_info(soup, product_name):
                 else:
                     product_price = "Price not found"
 
-                product_names.append(element.strip())
-                product_elements.append(product_link.strip())
-                product_prices.append(product_price)
-
+                product_data[element.strip()] = {
+                    "link": product_link.strip(),
+                    "price": product_price,
+                    "name": element.strip(),
+                    "parent_element": parent_element
+                }
                 count += 1
 
-    return product_names, product_elements, product_prices, count
-
-
-"""
-    Extracts all the prices in the website. This method is hardcoded to work for a large majority of websites.
-    This is due to a smaller number of websites utilising a different html element for prices.
-    
-    E.g:
-        Rebel Sport, Aje World, Harveynorman, JBHIFI, ASOS, Target, BIGW: <span class="$...">
-        Officeworks: <div data="$...">
-        Bunnings: <p data-locator="$..."> 
-        
-    Parameters:
-        html (str): The HTML content to be parsed and searched.
-
-    Returns:
-        Array:
-            - prices (list): A list of product prices found in the html
-"""
-
-# async def get_product_prices(html, soup):
-#     # Finding all "span" tags in html
-#     span_elements = soup.find_all("span")
-
-#     # Regular expression to match price patterns (e.g., $10.99, £20, 15.50 EUR, etc.)
-#     price_pattern = r"\$\d+\.\d+|\£\d+|\d+\.\d+\s(?:USD|EUR)"
-
-#     prices = []
-#     count = 1
-#     for element in span_elements:
-#         # Search for the price pattern in the text of the span element
-#         price_match = re.search(price_pattern, str(element.text))
-#         if price_match and element is not None:
-#             product_details = {price_match.group(), count}
-#             prices.append(product_details)
-#             count += 1
-
-#     return prices
+    return product_data, count
 
 
 async def get_url_formatting(product_name, website_name):
@@ -137,14 +84,12 @@ async def get_url_formatting(product_name, website_name):
     website_urls = {
         "rebelsport": f"https://www.rebelsport.com.au/search?q={product_end_formatted}",
         "harveynorman": f"https://www.harveynorman.com.au/search?q={product_formatted}",
-        "ebay": f"https://www.ebay.com.au/sch/i.html?_from=R40&_trksid=p4432023.m570.l1313&_nkw={product_name}&_sacat=0",
+        "ebay": f"https://www.ebay.com.au/sch/i.html?_from=R40&_trksid=p4432023.m570.l1313&_nkw={product_formatted}&_sacat=0",
         "thegoodguys": f"https://www.thegoodguys.com.au/SearchDisplay?categoryId=&storeId=900&catalogId=30000&langId=-1&sType=SimpleSearch&resultCatEntryType=2&showResultsPage=true&searchSource=Q&pageView=&beginIndex=0&orderBy=0&pageSize=30&searchTerm={product_formatted}",
-        "kogan": f"https://www.kogan.com/au/shop/?q={product_name}",
-        "officeworks": f"https://www.officeworks.com.au/shop/officeworks/search?q={product_name}&view=grid&page=1&sortBy=bestmatch",
-        "amazon": f"https://www.amazon.com.au/s?k={product_name}",
-        "jbhifi": f"https://www.jbhifi.com.au/search?page=1&query={product_name}&saleItems=false&toggle%5BonPromotion%5D=false",
-        "ajeworld": f"https://ajeworld.com.au/collections/shop?q={product_name}", 
-        "bestbuy" : f"https://www.bestbuy.com/site/searchpage.jsp?st={product_name}"
+        "kogan": f"https://www.kogan.com/au/shop/?q={product_formatted}",
+        "officeworks": f"https://www.officeworks.com.au/shop/officeworks/search?q={product_end_formatted}&view=grid&page=1&sortBy=bestmatch",
+        "jbhifi": f"https://www.jbhifi.com.au/search?page=1&query={product_end_formatted}&saleItems=false&toggle%5BonPromotion%5D=false",
+        "ajeworld": f"https://ajeworld.com.au/collections/shop?q={product_formatted}", 
     }
     if website_name not in website_urls:
         print("Unsupported website name:", website_name)
@@ -192,8 +137,6 @@ async def get_product_price_fromLink(product_link, soup):
     prices = []
     for element in product_link:
         if element and re.search(r"^(http|https)://", element):
-           # print("Processing URL:", element)
-           # getUrl = requests.get(element)
             price = soup.find_all("span")
             
             if price is not None:
@@ -201,10 +144,13 @@ async def get_product_price_fromLink(product_link, soup):
                 
     return prices
 
-
+        
 async def fetch_html(url_):
-    async with aiohttp.ClientSession() as session:
-        async with session.get(url_) as response:
+    headers = {
+        'User-Agent': 'Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.71 Safari/537.36'
+    }
+    async with aiohttp.ClientSession() as session:        
+        async with session.get(url_, headers=headers) as response:
             if response.status == 200:
                 return await response.text()
             else:
@@ -213,20 +159,17 @@ async def fetch_html(url_):
 
 async def get_soup(url_):
     html = await fetch_html(url_)
-
     if html:
-        return BeautifulSoup(html, "html5lib")
+        return BeautifulSoup(html, "lxml")
     else:
         print(f"Failed to fetch the webpage: {url_}")
-     
-def main():
-    loop = asyncio.new_event_loop()
-    asyncio.set_event_loop(loop)
-    loop.run_until_complete(run_search())
-
-async def run_search():
+        return None
+    
+    
+async def main():
     product_name = input("Enter product name: ")
     website_name = input("Enter website: ")
+
     formatted_url = await get_url_formatting(product_name, website_name)
     print(f"Now searching for {product_name} in url {formatted_url}")
 
@@ -237,18 +180,14 @@ async def run_search():
 
     if soup:
         # Extract product information from the HTML
-        product_names, product_links, product_prices, count = await extract_product_info(
-            soup, product_name
-        )
+        product_data, count = await extract_product_info(soup, product_name)
 
         # Output the product information
-        for name, link, price in zip(product_names, product_links, product_prices):
-            print(f"Product Name: {name}\n")
-            print(f"Product Price: {price}\n")
-            print(f"Product link: {link}\n")
+        for product_info in product_data.values():
+            print(f"Product Info:\n {product_info}\n")
 
             # Fetch additional product information using the product links
-            # additional_soup = await get_soup(link)
+            # additional_soup = await get_soup(product_info['link'])
             # if additional_soup:
             #     additional_prices = await get_product_prices(additional_soup, additional_soup)
             #     print("Additional Prices:", additional_prices)
@@ -265,4 +204,4 @@ async def run_search():
 
 
 if __name__ == "__main__":
-    main()
+    asyncio.run(main())
