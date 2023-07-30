@@ -14,6 +14,7 @@ from urllib.parse import urljoin
 import requests
 from bs4 import BeautifulSoup
 from urllib.request import Request
+
 #Counting the number of links extracted
 counter = 0
 fixed_links = 0
@@ -37,7 +38,7 @@ sub_links = {}
 """
 
 #Reads the url
-def read_link(product, website_name):
+async def read_link(product, website_name):
     website_name = website_name.replace(" ", "").lower()
     base_url = f"https://www.{website_name}.com.au/"
     product = product.replace(" ", "-")
@@ -49,7 +50,7 @@ def read_link(product, website_name):
     OTHER WEBSITES OR YOU CAN USE YOUR CODE TO LET THE SOFTWARE PASS THORUGH EXCEPTIONS WERE THE CODE HAS
     MISSING SCHEME APPLIED DID YOU MEAN "//HTTPS: ..... ERROR
 """
-def get_links():
+async def get_links():
     global counter, fixed_links
     # Getting the url
     getUrl = read_link(product, website_name)
