@@ -1,0 +1,17 @@
+altgraph @ file:///System/Volumes/Data/SWE/Apps/DT/BuildRoots/BuildRoot7/ActiveBuildRoot/Library/Caches/com.apple.xbs/Sources/python3/python3-133.100.1.1/altgraph-0.17.2-py2.py3-none-any.whl
+asgiref==3.7.2
+Django==4.2.4
+future @ file:///System/Volumes/Data/SWE/Apps/DT/BuildRoots/BuildRoot7/ActiveBuildRoot/Library/Caches/com.apple.xbs/Sources/python3/python3-133.100.1.1/future-0.18.2-py3-none-any.whl
+macholib @ file:///System/Volumes/Data/SWE/Apps/DT/BuildRoots/BuildRoot7/ActiveBuildRoot/Library/Caches/com.apple.xbs/Sources/python3/python3-133.100.1.1/macholib-1.15.2-py2.py3-none-any.whl
+Pillow==9.5.0
+psgtest==3.2
+psutil==5.9.5
+pyinstaller @ https://github.com/pyinstaller/pyinstaller/archive/develop.zip
+pyinstaller-hooks-contrib==2023.2
+PySimpleGUI==4.60.4
+PySimpleGUIQt==0.30.0
+RuNAs==0.1
+six @ file:///System/Volumes/Data/SWE/Apps/DT/BuildRoots/BuildRoot7/ActiveBuildRoot/Library/Caches/com.apple.xbs/Sources/python3/python3-133.100.1.1/six-1.15.0-py2.py3-none-any.whl
+sqlparse==0.4.4
+tk==0.1.0
+typing_extensions==4.7.1

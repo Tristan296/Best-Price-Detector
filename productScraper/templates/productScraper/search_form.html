@@ -1,0 +1,12 @@
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+
+<form method="post">
+    {% csrf_token %}
+    <label for="product_name">Product Name:</label>
+    <input type="text" id="product_name" name="product_name"><br>
+    <label for="website_name">Website:</label>
+    <input type="text" id="website_name" name="website_name"><br>
+    <input type="submit" value="Search">
+  </form>
+  
